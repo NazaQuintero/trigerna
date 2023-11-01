@@ -31,3 +31,5 @@ jobs:
             
         - name: create release
           uses: ncipollo/release-action@v1.13.0
+          with:
+            skipIfReleaseExists: true
