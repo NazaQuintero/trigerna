@@ -13,6 +13,24 @@ on:
 
 jobs:
 
+    unitTests:
+      runs-on: ubuntu-latest  # You can choose a different runner if needed
+
+      steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Install Godot
+        run: |
+          wget https://github.com/godotengine/godot-builds/releases/download/4.1.2-stable/Godot_v4.1.2-stable_linux.x86_64.zip
+          unzip Godot_v4.1.2-stable_linux.x86_64.zip
+        working-directory: Godot/Project  # Navigate to your project directory
+
+      - name: Run unit tests
+        run: |
+          ./Godot_v4.1.2-stable_linux.x86_64 --script addons/gut/gut_cmdln.gd -d --path $PWD -ginclude_subdirs -gdir=res://Tests -gexit -gprefix=test_
+        working-directory: Godot/Project
+
     build:
       runs-on: ubuntu-latest
       permissions:
