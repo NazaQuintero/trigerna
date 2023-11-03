@@ -25,6 +25,7 @@ jobs:
             gut_params: -gdir=res://tests -gsuffix=.test.gd -gprefix=
 
     build:
+      needs: execute-gut
       runs-on: ubuntu-latest
       permissions:
         contents: write
