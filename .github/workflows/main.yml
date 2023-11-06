@@ -12,13 +12,11 @@ on:
   workflow_dispatch:
 
 jobs:
-
     build:
       runs-on: ubuntu-latest
       permissions:
         contents: write
       steps:
-
         - uses: actions/checkout@v3
         - name: exportGame
           uses: firebelley/godot-export@v5.2.1
@@ -28,7 +26,6 @@ jobs:
             relative_project_path: ./
             relative_export_path: ./build
             archive_output: true
-            
         - name: create release
           uses: ncipollo/release-action@v1.13.0
           with:
