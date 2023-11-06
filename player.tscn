@@ -1,42 +1,122 @@
-[gd_scene load_steps=5 format=3 uid="uid://bit7twvnjyqs4"]
+[gd_scene load_steps=11 format=3 uid="uid://b77u56sn3ppkb"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_ffg5s"]
-[ext_resource type="Texture2D" uid="uid://c8ipvo56vj4e1" path="res://art/soldier1_gun.png" id="2_qykec"]
+[ext_resource type="Texture2D" uid="uid://bavvmijbnt1e5" path="res://art/Hero.png" id="2_mnydm"]
+[ext_resource type="Texture2D" uid="uid://2ixwe0gb8vrb" path="res://art/Fist.png" id="3_or18i"]
+[ext_resource type="Script" path="res://Hitbox.gd" id="4_4mh67"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b5gsf"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_qykec")
-}],
-"loop": true,
-"name": &"up",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_qykec")
+"texture": ExtResource("2_mnydm")
 }],
 "loop": true,
 "name": &"walk",
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2giab"]
-radius = 14.0
-height = 38.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_8f8is"]
+radius = 17.0
+
+[sub_resource type="Animation" id="Animation_51nxl"]
+resource_name = "attack"
+length = 0.7
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(30, 2.08165e-12), Vector2(2.08165e-12, 2.08165e-12)]
+}
+
+[sub_resource type="Animation" id="Animation_gi6t8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1c135"]
+_data = {
+"RESET": SubResource("Animation_gi6t8"),
+"attack": SubResource("Animation_51nxl")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yajom"]
 
 [node name="Player" type="Area2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_ffg5s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-11, 7.125)
-scale = Vector2(0.923077, 0.831395)
+position = Vector2(2.08165e-12, 2.08165e-12)
+rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_b5gsf")
-animation = &"up"
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-20, 8)
-shape = SubResource("CapsuleShape2D_2giab")
+position = Vector2(2.08165e-12, 2.08165e-12)
+shape = SubResource("CircleShape2D_8f8is")
+
+[node name="Fist" type="Node2D" parent="."]
+scale = Vector2(2, 2)
+
+[node name="FistAnimationPlayer" type="AnimationPlayer" parent="Fist"]
+libraries = {
+"": SubResource("AnimationLibrary_1c135")
+}
+
+[node name="Node2D" type="Node2D" parent="Fist"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Fist/Node2D"]
+position = Vector2(16.5, 0)
+texture = ExtResource("3_or18i")
+
+[node name="Hitbox" type="Area2D" parent="Fist/Node2D"]
+script = ExtResource("4_4mh67")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fist/Node2D/Hitbox"]
+position = Vector2(16.5, 2.08165e-12)
+scale = Vector2(0.2, 0.2)
+shape = SubResource("RectangleShape2D_yajom")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
