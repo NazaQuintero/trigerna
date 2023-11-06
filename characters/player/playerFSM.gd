@@ -26,7 +26,7 @@ func _get_transition():
 	return -1
 
 
-func _enter_state(previous_state: int, new_state: int) -> void:
+func _enter_state(_previous_state: int, new_state: int) -> void:
 	match new_state:
 		states.idle:
 			animation_player.play("idle")
@@ -34,5 +34,5 @@ func _enter_state(previous_state: int, new_state: int) -> void:
 			animation_player.play("run")
 
 
-func _exit_state(state: int) -> void:
+func _exit_state(_state: int) -> void:
 	pass

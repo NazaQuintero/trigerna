@@ -81,6 +81,7 @@ layer_0/tile_data = PackedInt32Array(0, 196608, 1, 1, 196608, 1, 2, 196608, 1, 3
 
 [node name="FlyingEnemy" parent="." instance=ExtResource("3_qrgyh")]
 detection_radius = 500
-max_speed = 80
+acceleration = 20
+max_speed = 50
 
 [node name="Player" parent="." instance=ExtResource("1_dt4pr")]

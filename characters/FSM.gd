@@ -42,9 +42,9 @@ func _set_state(new_state: int) -> void:
 	_enter_state(previous_state, state)
 
 
-func _enter_state(previous_state: int, new_state: int) -> void:
+func _enter_state(_previous_state: int, _new_state: int) -> void:
 	pass
 
 
-func _exit_state(state: int) -> void:
+func _exit_state(_state: int) -> void:
 	pass

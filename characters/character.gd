@@ -9,7 +9,7 @@ class_name Character
 
 var mov_direction: Vector2 = Vector2.ZERO
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	velocity = lerp(velocity, Vector2.ZERO, friction)
 
