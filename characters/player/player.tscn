@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c5pdqw1gfk41k"]
+[gd_scene load_steps=25 format=3 uid="uid://c5pdqw1gfk41k"]
 
 [ext_resource type="PackedScene" uid="uid://bg8rmo2l8j1x8" path="res://characters/character.tscn" id="1_dg20i"]
 [ext_resource type="Script" path="res://characters/player/player.gd" id="1_xmla5"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bk8qtg8iyxftb" path="res://art/heroes/knight/knight_run_anim_f4.png" id="12_o47wp"]
 [ext_resource type="Texture2D" uid="uid://cldkmis3rq5np" path="res://art/heroes/knight/knight_run_anim_f5.png" id="13_eeyu4"]
 [ext_resource type="Script" path="res://characters/player/FiniteStateMachine.gd" id="15_24hua"]
+[ext_resource type="Texture2D" uid="uid://2ixwe0gb8vrb" path="res://art/weapons/fist_1.png" id="16_nf6we"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_drogp"]
 animations = [{
@@ -64,6 +65,47 @@ animations = [{
 "name": &"run",
 "speed": 5.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yrcg5"]
+radius = 4.0
+
+[sub_resource type="Animation" id="Animation_lni0m"]
+resource_name = "attack"
+length = 1.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(10, 2.08165e-12), Vector2(20, -5), Vector2(30, 2.08165e-12), Vector2(10, 2.08165e-12)]
+}
+
+[sub_resource type="Animation" id="Animation_wer5l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(10, 2.08165e-12)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4vcwb"]
+_data = {
+"RESET": SubResource("Animation_wer5l"),
+"attack": SubResource("Animation_lni0m")
+}
 
 [sub_resource type="Animation" id="Animation_n0nvm"]
 resource_name = "idle"
@@ -130,6 +172,8 @@ _data = {
 }
 
 [node name="Player" instance=ExtResource("1_dg20i")]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_xmla5")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
@@ -137,10 +181,27 @@ sprite_frames = SubResource("SpriteFrames_drogp")
 animation = &"idle"
 speed_scale = 0.6
 
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(1, 2)
+shape = SubResource("CircleShape2D_yrcg5")
+
 [node name="FiniteStateMachine" parent="." index="2"]
 script = ExtResource("15_24hua")
 
-[node name="AnimationPlayer" parent="." index="3"]
+[node name="Fist" type="Node2D" parent="." index="3"]
+
+[node name="Node2D" type="Node2D" parent="Fist" index="0"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Fist/Node2D" index="0"]
+position = Vector2(10, 2.08165e-12)
+texture = ExtResource("16_nf6we")
+
+[node name="FistAnimationPlayer" type="AnimationPlayer" parent="Fist" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_4vcwb")
+}
+
+[node name="AnimationPlayer" parent="." index="4"]
 libraries = {
 "": SubResource("AnimationLibrary_tl5rj")
 }

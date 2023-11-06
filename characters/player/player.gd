@@ -2,6 +2,8 @@ extends Character
 
 
 @onready var screen_size: Vector2 = get_viewport_rect().size
+@onready var fist: Node2D = get_node("Fist")
+@onready var fist_animation_player: AnimationPlayer = fist.get_node("FistAnimationPlayer")
 
 
 func _ready() -> void:
@@ -15,6 +17,14 @@ func _process(_delta: float) -> void:
 		animated_sprite.flip_h = false
 	elif mouse_direction.x < 0 and not animated_sprite.flip_h:
 		animated_sprite.flip_h = true
+		
+	fist.rotation = mouse_direction.angle()
+	if fist.scale.y == 1 and mouse_direction.x < 0:
+		fist.scale.y = -1
+	if fist.scale.y == -1 and mouse_direction.x > 0:
+		fist.scale.y = 1
+	if Input.is_action_just_pressed("ui_attack") and not fist_animation_player.is_playing():
+		fist_animation_player.play("attack")
 
 
 func get_input() -> void:
