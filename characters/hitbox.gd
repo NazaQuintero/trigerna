@@ -17,6 +17,8 @@ func _ready() -> void:
 	assert(collision_shape != null)
 
 
-func _on_body_entered(body: Node2D) -> void:
-	print_debug("body entered")
-	body.take_damage(damage, knockback_direction, knockback_force)
+func _on_body_entered(body: PhysicsBody2D) -> void:
+	if body == null or not body.has_method("take_damage"):
+		queue_free()
+	else:
+		body.take_damage(damage, knockback_direction, knockback_force)
