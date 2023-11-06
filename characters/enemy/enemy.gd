@@ -14,7 +14,6 @@ func chase() -> void:
 	if not navigation_agent.is_target_reached():	
 		var vector_to_next_point: Vector2 = navigation_agent.get_next_path_position() - global_position
 		mov_direction = vector_to_next_point
-		print_debug(player.position, navigation_agent.target_position, is_instance_valid(player))
 		
 		if vector_to_next_point.x > 0 and animated_sprite.flip_h:
 			animated_sprite.flip_h = false
@@ -26,7 +25,6 @@ func chase() -> void:
 
 func _on_path_timer_timeout() -> void:
 	if is_instance_valid(player):
-		print_debug("here")
 		_get_path_to_player()
 	else:
 		path_timer.stop()

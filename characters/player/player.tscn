@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c5pdqw1gfk41k"]
+[gd_scene load_steps=27 format=3 uid="uid://c5pdqw1gfk41k"]
 
 [ext_resource type="PackedScene" uid="uid://bg8rmo2l8j1x8" path="res://characters/character.tscn" id="1_dg20i"]
 [ext_resource type="Script" path="res://characters/player/player.gd" id="1_xmla5"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cldkmis3rq5np" path="res://art/heroes/knight/knight_run_anim_f5.png" id="13_eeyu4"]
 [ext_resource type="Script" path="res://characters/player/playerFSM.gd" id="15_rimmr"]
 [ext_resource type="Texture2D" uid="uid://2ixwe0gb8vrb" path="res://art/weapons/fist_1.png" id="16_nf6we"]
+[ext_resource type="Script" path="res://characters/hitbox.gd" id="17_ugetw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_drogp"]
 animations = [{
@@ -69,6 +70,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_yrcg5"]
 radius = 4.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_itky3"]
+radius = 2.0
+
 [sub_resource type="Animation" id="Animation_wer5l"]
 length = 0.001
 tracks/0/type = "value"
@@ -98,7 +102,19 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.15, 0.3, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(10, 2.08165e-12), Vector2(20, -5), Vector2(30, 2.08165e-12), Vector2(10, 2.08165e-12)]
+"values": [Vector2(10, 2.08165e-12), Vector2(20, 2.08165e-12), Vector2(30, 2.08165e-12), Vector2(10, 2.08165e-12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/Sprite2D/Hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4vcwb"]
@@ -195,6 +211,15 @@ script = ExtResource("15_rimmr")
 [node name="Sprite2D" type="Sprite2D" parent="Fist/Node2D" index="0"]
 position = Vector2(10, 2.08165e-12)
 texture = ExtResource("16_nf6we")
+
+[node name="Hitbox" type="Area2D" parent="Fist/Node2D/Sprite2D" index="0"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("17_ugetw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fist/Node2D/Sprite2D/Hitbox" index="0"]
+shape = SubResource("CircleShape2D_itky3")
+disabled = true
 
 [node name="FistAnimationPlayer" type="AnimationPlayer" parent="Fist" index="1"]
 libraries = {

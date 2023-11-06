@@ -3,6 +3,7 @@ extends Character
 
 @onready var screen_size: Vector2 = get_viewport_rect().size
 @onready var fist: Node2D = get_node("Fist")
+@onready var fist_hitbox: Area2D = get_node("Fist/Node2D/Sprite2D/Hitbox")
 @onready var fist_animation_player: AnimationPlayer = fist.get_node("FistAnimationPlayer")
 
 
@@ -19,6 +20,7 @@ func _process(_delta: float) -> void:
 		animated_sprite.flip_h = true
 		
 	fist.rotation = mouse_direction.angle()
+	fist_hitbox.knockback_direction = mouse_direction
 	if fist.scale.y == 1 and mouse_direction.x < 0:
 		fist.scale.y = -1
 	if fist.scale.y == -1 and mouse_direction.x > 0:
