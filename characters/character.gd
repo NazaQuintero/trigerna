@@ -24,5 +24,9 @@ func move() -> void:
 
 func take_damage(damage: int, direction: Vector2, force: int) -> void:
 	hitpoints -= damage
-	state_machine._set_state(state_machine.states.hurt)
 	velocity += direction * force
+	if hitpoints > 0:
+		state_machine._set_state(state_machine.states.hurt)
+	else:
+		state_machine._set_state(state_machine.states.dead)
+		velocity *= 2
