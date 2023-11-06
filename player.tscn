@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://b77u56sn3ppkb"]
+[gd_scene load_steps=11 format=3 uid="uid://b77u56sn3ppkb"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_ffg5s"]
 [ext_resource type="Texture2D" uid="uid://bavvmijbnt1e5" path="res://art/Hero.png" id="2_mnydm"]
 [ext_resource type="Texture2D" uid="uid://2ixwe0gb8vrb" path="res://art/Fist.png" id="3_or18i"]
+[ext_resource type="Script" path="res://Hitbox.gd" id="4_4mh67"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b5gsf"]
 animations = [{
@@ -110,7 +111,10 @@ libraries = {
 position = Vector2(16.5, 0)
 texture = ExtResource("3_or18i")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fist/Node2D"]
+[node name="Hitbox" type="Area2D" parent="Fist/Node2D"]
+script = ExtResource("4_4mh67")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fist/Node2D/Hitbox"]
 position = Vector2(16.5, 2.08165e-12)
 scale = Vector2(0.2, 0.2)
 shape = SubResource("RectangleShape2D_yajom")
