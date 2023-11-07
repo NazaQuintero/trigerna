@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://dwlv5vpmgkod8" path="res://art/full tilemap.png" id="2_6rpor"]
 [ext_resource type="PackedScene" uid="uid://ght7fiyhumoj" path="res://characters/enemy/flying_enemy.tscn" id="3_qrgyh"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_a5r1r"]
-vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_cm515"]
+vertices = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)])
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jq0j8"]
 texture = ExtResource("2_6rpor")
@@ -50,14 +50,14 @@ texture = ExtResource("2_6rpor")
 3:1/0 = 0
 3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:1/0/physics_layer_0/angular_velocity = 0.0
-3:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_a5r1r")
+3:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_cm515")
 4:1/0 = 0
 4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:1/0/physics_layer_0/angular_velocity = 0.0
 5:1/0 = 0
 5:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:1/0/physics_layer_0/angular_velocity = 0.0
-5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, -6, 6, -6, 6, 6, -6, 6)
 6:1/0 = 0
 6:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:1/0/physics_layer_0/angular_velocity = 0.0

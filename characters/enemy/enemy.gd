@@ -7,8 +7,10 @@ class_name Enemy
 
 @export var detection_radius: int = 20
 
+
 func _ready() -> void:
 	path_timer.start()
+
 
 func chase() -> void:
 	if not navigation_agent.is_target_reached():	
