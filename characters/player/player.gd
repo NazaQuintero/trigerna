@@ -1,5 +1,6 @@
 extends Character
 
+enum {UP, DOWN}
 
 @onready var screen_size: Vector2 = get_viewport_rect().size
 @onready var weapons: Node2D = $Weapons
@@ -35,4 +36,25 @@ func get_input() -> void:
 	if Input.is_action_pressed("ui_right"):
 		mov_direction += Vector2.RIGHT
 	
+	if not current_weapon.is_busy:
+		if Input.is_action_just_released("ui_previous_weapon"):
+			_switch_weapons(UP)
+		elif Input.is_action_just_released("ui_next_weapon"):
+			_switch_weapons(DOWN)
 	current_weapon.get_input()
+
+
+func _switch_weapons(direction: int) -> void:
+	var index: int = current_weapon.get_index()
+	if direction == UP:
+		index -= 1
+		if index < 0:
+			index = weapons.get_child_count() - 1
+	else:
+		index += 1
+		if index > weapons.get_child_count() - 1:
+			index = 0
+	
+	current_weapon.hide()
+	current_weapon = weapons.get_child(index)
+	current_weapon.show()
