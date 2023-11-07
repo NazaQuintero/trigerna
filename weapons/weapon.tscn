@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://7a2fbt3npo5f"]
+
+[ext_resource type="Script" path="res://weapons/weapon.gd" id="1_q0w68"]
+[ext_resource type="Script" path="res://characters/hitbox.gd" id="2_t8n7w"]
+
+[sub_resource type="Animation" id="Animation_wer5l"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_lni0m"]
+resource_name = "attack"
+length = 1.25
+step = 0.05
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4vcwb"]
+_data = {
+"RESET": SubResource("Animation_wer5l"),
+"attack": SubResource("Animation_lni0m")
+}
+
+[node name="Weapon" type="Node2D"]
+script = ExtResource("1_q0w68")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(10, 2.08165e-12)
+
+[node name="Hitbox" type="Area2D" parent="Node2D/Sprite2D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("2_t8n7w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Sprite2D/Hitbox"]
+
+[node name="WeaponAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4vcwb")
+}

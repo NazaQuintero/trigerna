@@ -11,7 +11,7 @@ detection_radius = 20
 
 [node name="PathTimer" type="Timer" parent="." index="4"]
 process_callback = 0
-wait_time = 0.1
+wait_time = 0.5
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="5"]
 navigation_layers = 7

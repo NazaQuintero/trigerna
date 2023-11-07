@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c5pdqw1gfk41k"]
+[gd_scene load_steps=22 format=3 uid="uid://c5pdqw1gfk41k"]
 
 [ext_resource type="PackedScene" uid="uid://bg8rmo2l8j1x8" path="res://characters/character.tscn" id="1_dg20i"]
 [ext_resource type="Script" path="res://characters/player/player.gd" id="1_xmla5"]
@@ -15,8 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bk8qtg8iyxftb" path="res://art/heroes/knight/knight_run_anim_f4.png" id="12_o47wp"]
 [ext_resource type="Texture2D" uid="uid://cldkmis3rq5np" path="res://art/heroes/knight/knight_run_anim_f5.png" id="13_eeyu4"]
 [ext_resource type="Script" path="res://characters/player/playerFSM.gd" id="15_rimmr"]
-[ext_resource type="Texture2D" uid="uid://2ixwe0gb8vrb" path="res://art/weapons/fist_1.png" id="16_nf6we"]
-[ext_resource type="Script" path="res://characters/hitbox.gd" id="17_ugetw"]
+[ext_resource type="PackedScene" uid="uid://b4ysopuoriuat" path="res://weapons/fist.tscn" id="16_e1bq8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_drogp"]
 animations = [{
@@ -67,61 +66,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_yrcg5"]
-radius = 4.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_itky3"]
-radius = 2.0
-
-[sub_resource type="Animation" id="Animation_wer5l"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node2D/Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(10, 2.08165e-12)]
-}
-
-[sub_resource type="Animation" id="Animation_lni0m"]
-resource_name = "attack"
-length = 1.25
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node2D/Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(10, 2.08165e-12), Vector2(20, 2.08165e-12), Vector2(30, 2.08165e-12), Vector2(10, 2.08165e-12)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Node2D/Sprite2D/Hitbox/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_4vcwb"]
-_data = {
-"RESET": SubResource("Animation_wer5l"),
-"attack": SubResource("Animation_lni0m")
-}
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jbf27"]
+radius = 5.0
+height = 14.0
 
 [sub_resource type="Animation" id="Animation_n0nvm"]
 resource_name = "idle"
@@ -198,33 +145,15 @@ animation = &"idle"
 speed_scale = 0.6
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(1, 2)
-shape = SubResource("CircleShape2D_yrcg5")
+position = Vector2(1, -1)
+shape = SubResource("CapsuleShape2D_jbf27")
 
 [node name="FiniteStateMachine" parent="." index="2"]
 script = ExtResource("15_rimmr")
 
-[node name="Fist" type="Node2D" parent="." index="3"]
+[node name="Weapons" type="Node2D" parent="." index="3"]
 
-[node name="Node2D" type="Node2D" parent="Fist" index="0"]
-
-[node name="Sprite2D" type="Sprite2D" parent="Fist/Node2D" index="0"]
-position = Vector2(10, 2.08165e-12)
-texture = ExtResource("16_nf6we")
-
-[node name="Hitbox" type="Area2D" parent="Fist/Node2D/Sprite2D" index="0"]
-collision_layer = 4
-collision_mask = 4
-script = ExtResource("17_ugetw")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fist/Node2D/Sprite2D/Hitbox" index="0"]
-shape = SubResource("CircleShape2D_itky3")
-disabled = true
-
-[node name="FistAnimationPlayer" type="AnimationPlayer" parent="Fist" index="1"]
-libraries = {
-"": SubResource("AnimationLibrary_4vcwb")
-}
+[node name="Fist" parent="Weapons" index="0" instance=ExtResource("16_e1bq8")]
 
 [node name="AnimationPlayer" parent="." index="4"]
 libraries = {

@@ -4,10 +4,10 @@ class_name Character
 @export var friction: float = 0.5
 @export var acceleration: int = 40
 @export var max_speed: int = 100
-@export var hitpoints: int = 2
+@export var hitpoints: int
 
-@onready var state_machine: Node = get_node("FiniteStateMachine")
-@onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
+@onready var state_machine: Node = $FiniteStateMachine
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var mov_direction: Vector2 = Vector2.ZERO
 

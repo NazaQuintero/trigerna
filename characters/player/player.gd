@@ -2,9 +2,11 @@ extends Character
 
 
 @onready var screen_size: Vector2 = get_viewport_rect().size
-@onready var fist: Node2D = get_node("Fist")
-@onready var fist_hitbox: Area2D = get_node("Fist/Node2D/Sprite2D/Hitbox")
-@onready var fist_animation_player: AnimationPlayer = fist.get_node("FistAnimationPlayer")
+@onready var weapons: Node2D = $Weapons
+@onready var current_weapon: Node2D = weapons.get_child(0)
+
+
+var damage_modifier: int = 2
 
 
 func _ready() -> void:
@@ -18,15 +20,8 @@ func _process(_delta: float) -> void:
 		animated_sprite.flip_h = false
 	elif mouse_direction.x < 0 and not animated_sprite.flip_h:
 		animated_sprite.flip_h = true
-		
-	fist.rotation = mouse_direction.angle()
-	fist_hitbox.knockback_direction = mouse_direction
-	if fist.scale.y == 1 and mouse_direction.x < 0:
-		fist.scale.y = -1
-	if fist.scale.y == -1 and mouse_direction.x > 0:
-		fist.scale.y = 1
-	if Input.is_action_just_pressed("ui_attack") and not fist_animation_player.is_playing():
-		fist_animation_player.play("attack")
+	
+	current_weapon.move()
 
 
 func get_input() -> void:
@@ -39,3 +34,5 @@ func get_input() -> void:
 		mov_direction += Vector2.UP
 	if Input.is_action_pressed("ui_right"):
 		mov_direction += Vector2.RIGHT
+	
+	current_weapon.get_input()
