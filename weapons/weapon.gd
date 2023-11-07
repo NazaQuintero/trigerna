@@ -1,9 +1,8 @@
 extends Node2D
 class_name Weapon
 
-@onready var hitbox: Area2D = $Hitbox
-@onready var animation_player: AnimationPlayer = $WeaponAnimationPlayer
-
+@onready var hitbox: Area2D = get_node("Node2D/Sprite2D/Hitbox")
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func get_input() -> void:
 	if Input.is_action_just_pressed("ui_attack") and not animation_player.is_playing():

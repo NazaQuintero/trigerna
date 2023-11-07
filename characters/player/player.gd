@@ -21,7 +21,7 @@ func _process(_delta: float) -> void:
 	elif mouse_direction.x < 0 and not animated_sprite.flip_h:
 		animated_sprite.flip_h = true
 	
-	current_weapon.move()
+	current_weapon.move(mouse_direction)
 
 
 func get_input() -> void:
