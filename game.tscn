@@ -1,11 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dpokl7aedr8ng"]
+[gd_scene load_steps=7 format=3 uid="uid://dpokl7aedr8ng"]
 
 [ext_resource type="PackedScene" uid="uid://c5pdqw1gfk41k" path="res://characters/player/player.tscn" id="1_dt4pr"]
-[ext_resource type="Script" path="res://UI.gd" id="1_u2das"]
 [ext_resource type="Texture2D" uid="uid://dwlv5vpmgkod8" path="res://art/full tilemap.png" id="2_6rpor"]
-[ext_resource type="Texture2D" uid="uid://yo3pm86myfmv" path="res://art/ui/health_ui.png" id="2_xxsdm"]
 [ext_resource type="PackedScene" uid="uid://ght7fiyhumoj" path="res://characters/enemy/flying_enemy.tscn" id="3_qrgyh"]
-[ext_resource type="Texture2D" uid="uid://dqnimwpbmjmsf" path="res://art/ui/progress_bar.png" id="3_tdof4"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_cm515"]
 vertices = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
@@ -188,20 +185,6 @@ sources/0 = SubResource("TileSetAtlasSource_jq0j8")
 [node name="Game" type="Node2D"]
 texture_filter = 1
 
-[node name="UI" type="CanvasLayer" parent="."]
-script = ExtResource("1_u2das")
-
-[node name="HealthBar" type="TextureProgressBar" parent="UI"]
-offset_left = 7.0
-offset_top = 6.0
-offset_right = 87.0
-offset_bottom = 22.0
-min_value = 23.0
-value = 23.0
-texture_over = ExtResource("2_xxsdm")
-texture_progress = ExtResource("3_tdof4")
-tint_progress = Color(0.745098, 0, 0.113725, 1)
-
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_g4kju")
 format = 2
@@ -210,7 +193,9 @@ layer_0/tile_data = PackedInt32Array(0, 196608, 1, 1, 196608, 1, 2, 196608, 1, 3
 [node name="FlyingEnemy" parent="." instance=ExtResource("3_qrgyh")]
 acceleration = 20
 
-[node name="Player" parent="." instance=ExtResource("1_dt4pr")]
-hitpoints = 4
+[node name="FlyingEnemy2" parent="." instance=ExtResource("3_qrgyh")]
+position = Vector2(478, -3)
+acceleration = 20
 
-[connection signal="hitpoints_changed" from="Player" to="UI" method="_on_player_hitpoints_changed"]
+[node name="Player" parent="." instance=ExtResource("1_dt4pr")]
+position = Vector2(244, 130)

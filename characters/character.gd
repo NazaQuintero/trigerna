@@ -4,7 +4,7 @@ class_name Character
 @export var friction: float = 0.5
 @export var acceleration: int = 40
 @export var max_speed: int = 100
-@export var hitpoints: int = 2 :
+@export var hitpoints: int = 100  :
 	set (new_hitpoints):
 		hitpoints = new_hitpoints
 	get:
@@ -28,6 +28,7 @@ func move() -> void:
 
 
 func take_damage(damage: int, direction: Vector2, force: int) -> void:
+	print_debug('take_damage: ', damage)
 	self.hitpoints -= damage
 	velocity += direction * force
 	if hitpoints > 0:
@@ -37,5 +38,6 @@ func take_damage(damage: int, direction: Vector2, force: int) -> void:
 		velocity *= 2
 
 func set_hitpoints(new_hitpoints: int) -> void:
+	print_debug("entre a set_hitpoints")
 	hitpoints = new_hitpoints
 	emit_signal("hitpoints_changed", new_hitpoints)

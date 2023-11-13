@@ -4,6 +4,7 @@ extends Character
 @onready var screen_size: Vector2 = get_viewport_rect().size
 @onready var weapons: Node2D = $Weapons
 @onready var current_weapon: Node2D = weapons.get_child(0)
+@onready var healthbar: ProgressBar = $ProgressBar
 
 
 var damage_modifier: int = 2
@@ -11,6 +12,7 @@ var damage_modifier: int = 2
 
 func _ready() -> void:
 	position = screen_size / 2
+	update_health()
 
 
 func _process(_delta: float) -> void:
@@ -22,6 +24,10 @@ func _process(_delta: float) -> void:
 		animated_sprite.flip_h = true
 	
 	current_weapon.move(mouse_direction)
+	update_health()
+	
+func update_health():
+	healthbar.value = self.hitpoints
 
 
 func get_input() -> void:
