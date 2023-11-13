@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ba2h14v1csjvl"]
+[gd_scene load_steps=7 format=3 uid="uid://dpokl7aedr8ng"]
 
 [ext_resource type="PackedScene" uid="uid://c5pdqw1gfk41k" path="res://characters/player/player.tscn" id="1_dt4pr"]
 [ext_resource type="Texture2D" uid="uid://dwlv5vpmgkod8" path="res://art/full tilemap.png" id="2_6rpor"]
@@ -193,4 +193,9 @@ layer_0/tile_data = PackedInt32Array(0, 196608, 1, 1, 196608, 1, 2, 196608, 1, 3
 [node name="FlyingEnemy" parent="." instance=ExtResource("3_qrgyh")]
 acceleration = 20
 
+[node name="FlyingEnemy2" parent="." instance=ExtResource("3_qrgyh")]
+position = Vector2(478, -3)
+acceleration = 20
+
 [node name="Player" parent="." instance=ExtResource("1_dt4pr")]
+position = Vector2(244, 130)

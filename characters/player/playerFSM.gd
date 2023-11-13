@@ -4,6 +4,8 @@ extends FiniteStateMachine
 func _init() -> void:
 	_add_state("idle")
 	_add_state("run")
+	_add_state("hurt")
+	_add_state("dead")
 
 
 func _ready() -> void:
@@ -11,6 +13,7 @@ func _ready() -> void:
 
 
 func _state_logic(_delta: float) -> void:
+	#if state == states.get("idle") or state == states.get("move"):
 	parent.get_input()
 	parent.move()
 
@@ -23,6 +26,9 @@ func _get_transition():
 		states.run:
 			if parent.velocity.length() < 10:
 				return states.idle
+		states.hurt:
+			if not animation_player.is_playing():
+				return states.idle
 	return -1
 
 
@@ -32,6 +38,10 @@ func _enter_state(_previous_state: int, new_state: int) -> void:
 			animation_player.play("idle")
 		states.run:
 			animation_player.play("run")
+		states.hurt:
+			animation_player.play("hurt")
+		states.dead:
+			animation_player.play("dead")
 
 
 func _exit_state(_state: int) -> void:

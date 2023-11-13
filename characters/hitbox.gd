@@ -2,7 +2,7 @@ extends Area2D
 class_name Hitbox
 
 
-@export var damage: int = 1
+@export var damage: int = 10
 @export var knockback_force: int = 300
 
 @onready var knockback_direction: Vector2 = Vector2.ZERO
@@ -18,6 +18,7 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: PhysicsBody2D) -> void:
+	print_debug('Entre a Player')
 	if body == null or not body.has_method("take_damage"):
 		queue_free()
 	else:
