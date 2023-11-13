@@ -16,3 +16,7 @@ func move(mouse_direction: Vector2) -> void:
 		scale.y = -1
 	if scale.y == -1 and mouse_direction.x > 0:
 		scale.y = 1
+
+
+func is_busy() -> void:
+	pass
