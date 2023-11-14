@@ -228,6 +228,7 @@ hitpoints = 10
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_jmwc6")
 animation = &"move"
+frame = 3
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, 1)
