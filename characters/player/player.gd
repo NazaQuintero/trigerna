@@ -26,7 +26,8 @@ func _process(_delta: float) -> void:
 	
 	current_weapon.move(mouse_direction)
 	update_health()
-	
+
+
 func update_health():
 	healthbar.value = self.hitpoints
 
