@@ -2,13 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://bg8rmo2l8j1x8" path="res://character.tscn" id="1_uvgmf"]
 [ext_resource type="Script" path="res://characters/enemy/enemy.gd" id="2_elxji"]
-[ext_resource type="Script" path="res://characters/hitbox.gd" id="3_4aofg"]
+[ext_resource type="Script" path="res://characters/enemy/EnemyHitbox.gd" id="3_vs87m"]
 
 [node name="Enemy" instance=ExtResource("1_uvgmf")]
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("2_elxji")
-detection_radius = 20
 
 [node name="PathTimer" type="Timer" parent="." index="4"]
 process_callback = 0
@@ -16,9 +15,11 @@ wait_time = 0.5
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="5"]
 navigation_layers = 7
+radius = 16.0
+debug_enabled = true
 
 [node name="Hitbox" type="Area2D" parent="." index="6"]
-script = ExtResource("3_4aofg")
+script = ExtResource("3_vs87m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
 

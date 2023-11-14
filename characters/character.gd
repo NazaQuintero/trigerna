@@ -16,6 +16,7 @@ signal hitpoints_changed(new_hitpoints)
 
 var mov_direction: Vector2 = Vector2.ZERO
 
+
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	velocity = lerp(velocity, Vector2.ZERO, friction)
@@ -28,16 +29,10 @@ func move() -> void:
 
 
 func take_damage(damage: int, direction: Vector2, force: int) -> void:
-	print_debug('take_damage: ', damage)
 	self.hitpoints -= damage
-	velocity += direction * force
+	velocity = direction * force
 	if hitpoints > 0:
 		state_machine._set_state(state_machine.states.hurt)
 	else:
 		state_machine._set_state(state_machine.states.dead)
 		velocity *= 2
-
-func set_hitpoints(new_hitpoints: int) -> void:
-	print_debug("entre a set_hitpoints")
-	hitpoints = new_hitpoints
-	emit_signal("hitpoints_changed", new_hitpoints)

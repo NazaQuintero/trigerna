@@ -13,9 +13,13 @@ func _ready() -> void:
 
 
 func _state_logic(_delta: float) -> void:
-	#if state == states.get("idle") or state == states.get("move"):
-	parent.get_input()
-	parent.move()
+	match state:
+		states.idle:
+			parent.get_input()
+			parent.move()
+		states.run:
+			parent.get_input()
+			parent.move()
 
 
 func _get_transition():

@@ -1,11 +1,10 @@
 extends Character
 class_name Enemy
 
+
 @onready var player: CharacterBody2D = get_tree().current_scene.get_node("Player")
 @onready var path_timer: Timer = $PathTimer
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
-
-@export var detection_radius: int = 20
 
 
 func _ready() -> void:
@@ -23,6 +22,10 @@ func chase() -> void:
 			animated_sprite.flip_h = true
 	else:
 		mov_direction = Vector2.ZERO
+
+
+func stun() -> void:
+	state_machine._set_state(state_machine.states.stun)
 
 
 func _on_path_timer_timeout() -> void:

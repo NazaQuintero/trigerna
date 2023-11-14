@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c5pdqw1gfk41k"]
+[gd_scene load_steps=28 format=3 uid="uid://c5pdqw1gfk41k"]
 
 [ext_resource type="PackedScene" uid="uid://bg8rmo2l8j1x8" path="res://character.tscn" id="1_so2ru"]
 [ext_resource type="Script" path="res://characters/player/player.gd" id="1_xmla5"]
@@ -20,7 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://cldkmis3rq5np" path="res://art/heroes/knight/knight_run_anim_f5.png" id="13_eeyu4"]
 [ext_resource type="Script" path="res://characters/player/playerFSM.gd" id="15_rimmr"]
 [ext_resource type="PackedScene" uid="uid://b4ysopuoriuat" path="res://weapons/fist.tscn" id="16_e1bq8"]
-[ext_resource type="Script" path="res://characters/hitbox.gd" id="21_7er8e"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_drogp"]
 animations = [{
@@ -147,7 +146,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_o4pqb"]
 resource_name = "hurt"
-length = 0.6
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -179,10 +178,10 @@ tracks/2/path = NodePath("AnimatedSprite2D:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true, false, true]
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_n0nvm"]
@@ -251,10 +250,6 @@ _data = {
 "run": SubResource("Animation_ukll1")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bgm5e"]
-radius = 5.0
-height = 14.0
-
 [node name="Player" instance=ExtResource("1_so2ru")]
 collision_layer = 2
 collision_mask = 5
@@ -263,6 +258,7 @@ script = ExtResource("1_xmla5")
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_drogp")
 animation = &"idle"
+frame = 5
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(1, -1)
@@ -280,16 +276,7 @@ libraries = {
 "": SubResource("AnimationLibrary_tl5rj")
 }
 
-[node name="Hitbox" type="Area2D" parent="." index="5"]
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("21_7er8e")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2(1, -1)
-shape = SubResource("CapsuleShape2D_bgm5e")
-
-[node name="ProgressBar" type="ProgressBar" parent="." index="6"]
+[node name="ProgressBar" type="ProgressBar" parent="." index="5"]
 modulate = Color(0.337255, 0.690196, 0, 1)
 offset_left = -7.0
 offset_top = 9.0
