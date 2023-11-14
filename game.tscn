@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpokl7aedr8ng"]
+[gd_scene load_steps=8 format=3 uid="uid://dpokl7aedr8ng"]
 
 [ext_resource type="PackedScene" uid="uid://c5pdqw1gfk41k" path="res://characters/player/player.tscn" id="1_dt4pr"]
 [ext_resource type="Texture2D" uid="uid://dwlv5vpmgkod8" path="res://art/full tilemap.png" id="2_6rpor"]
 [ext_resource type="PackedScene" uid="uid://ght7fiyhumoj" path="res://characters/enemy/flying_enemy.tscn" id="3_qrgyh"]
+[ext_resource type="PackedScene" uid="uid://d1ffpjtb4732t" path="res://BaseItem.tscn" id="4_x1nsm"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_cm515"]
 vertices = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
@@ -199,3 +200,6 @@ acceleration = 20
 
 [node name="Player" parent="." instance=ExtResource("1_dt4pr")]
 position = Vector2(244, 130)
+
+[node name="Coin" parent="." instance=ExtResource("4_x1nsm")]
+position = Vector2(299, 88)
