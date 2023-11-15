@@ -13,20 +13,18 @@ signal hitpoints_changed(new_hitpoints)
 
 @onready var state_machine: Node = $FiniteStateMachine
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+var scene = preload("res://Coin.tscn")
 
 var mov_direction: Vector2 = Vector2.ZERO
-
 
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	velocity = lerp(velocity, Vector2.ZERO, friction)
 
-
 func move() -> void:
 	mov_direction = mov_direction.normalized()
 	velocity += mov_direction * acceleration
 	velocity = velocity.limit_length(max_speed)
-
 
 func take_damage(damage: int, direction: Vector2, force: int) -> void:
 	self.hitpoints -= damage
@@ -34,5 +32,13 @@ func take_damage(damage: int, direction: Vector2, force: int) -> void:
 	if hitpoints > 0:
 		state_machine._set_state(state_machine.states.hurt)
 	else:
+		if self.name != "Player":
+			drop_coin()
 		state_machine._set_state(state_machine.states.dead)
 		velocity *= 2
+
+func drop_coin():
+	var instance = scene.instantiate()
+	instance.position = self.position
+	get_parent().add_child(instance)
+	

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4ysopuoriuat"]
+[gd_scene load_steps=7 format=3 uid="uid://b4ysopuoriuat"]
 
 [ext_resource type="PackedScene" uid="uid://7a2fbt3npo5f" path="res://weapons/weapon.tscn" id="1_8ju4d"]
 [ext_resource type="Texture2D" uid="uid://ba0c2itla11ld" path="res://art/weapons/fist_1.png" id="2_shn83"]
+[ext_resource type="AudioStream" uid="uid://d34q3rgbncm1v" path="res://audio/slash.mp3" id="3_16ww2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ucbdn"]
 radius = 2.0
@@ -57,3 +58,6 @@ disabled = true
 libraries = {
 "": SubResource("AnimationLibrary_nh2jo")
 }
+
+[node name="slash" type="AudioStreamPlayer2D" parent="." index="2"]
+stream = ExtResource("3_16ww2")

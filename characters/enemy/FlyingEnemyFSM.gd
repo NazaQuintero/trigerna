@@ -36,6 +36,7 @@ func _enter_state(_previous_state: int, new_state: int) -> void:
 			animation_player.play("move")
 		states.hurt:
 			animation_player.play("hurt")
+			punch_sound.play()
 		states.dead:
 			animation_player.play("dead")
 		states.stun:

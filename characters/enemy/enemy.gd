@@ -6,7 +6,6 @@ class_name Enemy
 @onready var path_timer: Timer = $PathTimer
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 
-
 func _ready() -> void:
 	path_timer.start()
 
