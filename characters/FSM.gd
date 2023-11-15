@@ -4,6 +4,7 @@ class_name FiniteStateMachine
 
 @onready var parent: Character = get_parent()
 @onready var animation_player: AnimationPlayer = parent.get_node("AnimationPlayer")
+@onready var punch_sound: AudioStreamPlayer2D = parent.get_node("PunchSoundHit")
 
 var states: Dictionary = {}
 var previous_state: int = -1
