@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ght7fiyhumoj"]
+[gd_scene load_steps=21 format=3 uid="uid://ght7fiyhumoj"]
 
 [ext_resource type="PackedScene" uid="uid://mpb2w21jhky2" path="res://characters/enemy/enemy.tscn" id="1_mowns"]
 [ext_resource type="Texture2D" uid="uid://dyby7grdc6l1n" path="res://art/effects/enemy_afterdead_explosion_anim_f0.png" id="2_5k3ot"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://5h56iqkaddc0" path="res://art/effects/enemy_afterdead_explosion_anim_f3.png" id="5_5tiow"]
 [ext_resource type="Texture2D" uid="uid://diaydr48m8i4h" path="res://art/enemies/flying creature/fly_anim_f3.png" id="5_k2r14"]
 [ext_resource type="Script" path="res://characters/enemy/FlyingEnemyFSM.gd" id="6_vm3si"]
+[ext_resource type="AudioStream" uid="uid://b70ng6jjch654" path="res://audio/bat-death.mp3" id="11_8q0q6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jmwc6"]
 animations = [{
@@ -291,3 +292,6 @@ collision_mask = 2
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_0ionx")
+
+[node name="DeadSound" type="AudioStreamPlayer2D" parent="." index="8"]
+stream = ExtResource("11_8q0q6")

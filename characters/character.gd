@@ -13,6 +13,7 @@ signal hitpoints_changed(new_hitpoints)
 
 @onready var state_machine: Node = $FiniteStateMachine
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var collectedCoins = get_tree().current_scene.get_node("CoinsCounterUi").get_child(0)
 var scene = preload("res://Coin.tscn")
 
 var mov_direction: Vector2 = Vector2.ZERO
@@ -20,6 +21,7 @@ var mov_direction: Vector2 = Vector2.ZERO
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	velocity = lerp(velocity, Vector2.ZERO, friction)
+	collectedCoins.text = "Coins: " + str(CoinsCounter.coins)
 
 func move() -> void:
 	mov_direction = mov_direction.normalized()
