@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuoliggrvia3v"]
+
+[ext_resource type="Texture2D" uid="uid://bfeq7ckabr1th" path="res://art/props_itens/bag_coins.png" id="1_6rpgl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pvuoo"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 16.0
+offset_top = -1.0
+offset_right = 100.0
+offset_bottom = 25.0
+scale = Vector2(0.5, 0.5)
+text = "Coins: "
+label_settings = SubResource("LabelSettings_pvuoo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8.75, 3.375)
+scale = Vector2(0.90625, 1.07812)
+texture = ExtResource("1_6rpgl")
