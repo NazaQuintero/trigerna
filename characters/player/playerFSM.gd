@@ -43,11 +43,8 @@ func _enter_state(_previous_state: int, new_state: int) -> void:
 		states.run:
 			animation_player.play("run")
 		states.hurt:
-			player_hit.play()
 			animation_player.play("hurt")
-			player_hurt.play()
 		states.dead:
-			player_death.play()
 			animation_player.play("dead")
 
 

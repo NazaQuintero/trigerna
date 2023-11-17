@@ -48,7 +48,7 @@ func get_input() -> void:
 			_switch_weapons(UP)
 		elif Input.is_action_just_released("ui_next_weapon"):
 			_switch_weapons(DOWN)
-	current_weapon.get_input()
+	current_weapon._get_input()
 
 
 func _switch_weapons(direction: int) -> void:
