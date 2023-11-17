@@ -1,6 +1,9 @@
 extends Node2D
 
-var enemy_1 = preload("res://characters/enemy/flyingEnemy/flying_enemy.tscn")
+var enemy_list = [
+	preload("res://characters/enemy/flyingEnemy/flying_enemy.tscn"),
+	preload("res://characters/enemy/Goblin/goblin.tscn")
+]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -20,7 +23,6 @@ func _on_timer_timeout():
 	var enemy_position = get_random_position()
 	while is_in_visible_square_box(enemy_position):
 		enemy_position = get_random_position()
-		
-	Global.instance_node(enemy_1, enemy_position, self)
-		
+				
+	Global.instance_node(enemy_list.pick_random(), enemy_position, self)
 	

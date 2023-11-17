@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c5pdqw1gfk41k" path="res://characters/player/player.tscn" id="1_dt4pr"]
 [ext_resource type="Script" path="res://game.gd" id="1_rr1d5"]
 [ext_resource type="Texture2D" uid="uid://dwlv5vpmgkod8" path="res://art/full tilemap.png" id="2_6rpor"]
-[ext_resource type="PackedScene" uid="uid://cuoliggrvia3v" path="res://coins_counter_ui.tscn" id="4_2a0kh"]
+[ext_resource type="PackedScene" path="res://coins_counter_ui.tscn" id="4_2a0kh"]
 [ext_resource type="PackedScene" uid="uid://mxnm7jm88h4s" path="res://items/potion/potion.tscn" id="5_2yngj"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_cm515"]
