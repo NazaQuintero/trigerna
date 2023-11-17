@@ -4,7 +4,7 @@ class_name Goblin
 const MAX_DISTANCE_TO_PLAYER: int = 80
 const MIN_DISTANCE_TO_PLAYER: int = 40
 
-var knife = preload("res://characters/goblinKnife.tscn")
+var knife = preload("res://characters/enemy/Goblin/goblinKnife.tscn")
 var distance_to_player: float
 @onready var attack_timer: Timer = $AttackTimer
 @export var projectile_speed: int = 150

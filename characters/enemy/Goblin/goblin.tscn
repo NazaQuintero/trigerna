@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://mpb2w21jhky2" path="res://characters/enemy/enemy.tscn" id="1_antpy"]
 [ext_resource type="Texture2D" uid="uid://dyby7grdc6l1n" path="res://art/effects/enemy_afterdead_explosion_anim_f0.png" id="2_1r8ub"]
-[ext_resource type="Script" path="res://characters/enemy/goblin.gd" id="2_3nbw6"]
+[ext_resource type="Script" path="res://characters/enemy/Goblin/goblin.gd" id="2_3nbw6"]
 [ext_resource type="Texture2D" uid="uid://ev5y25sw27q7" path="res://art/effects/enemy_afterdead_explosion_anim_f1.png" id="3_ss8jd"]
 [ext_resource type="Texture2D" uid="uid://bq84wpagrl6ub" path="res://art/effects/enemy_afterdead_explosion_anim_f2.png" id="4_v1u8x"]
 [ext_resource type="Texture2D" uid="uid://5h56iqkaddc0" path="res://art/effects/enemy_afterdead_explosion_anim_f3.png" id="5_kdsb4"]
@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://dcs0trkkbpn6k" path="res://art/enemies/goblin/goblin_run_anim_f3.png" id="15_vqwfk"]
 [ext_resource type="Texture2D" uid="uid://c55l7ugujrnq1" path="res://art/enemies/goblin/goblin_run_anim_f4.png" id="16_yxv4b"]
 [ext_resource type="Texture2D" uid="uid://02o2m068o3og" path="res://art/enemies/goblin/goblin_run_anim_f5.png" id="17_d28qc"]
-[ext_resource type="Script" path="res://characters/enemy/GoblinFSM.gd" id="19_ayd0v"]
+[ext_resource type="Script" path="res://characters/enemy/Goblin/GoblinFSM.gd" id="19_ayd0v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yrqch"]
 resource_local_to_scene = true
