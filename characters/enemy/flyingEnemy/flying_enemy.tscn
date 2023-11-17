@@ -1,31 +1,32 @@
-[gd_scene load_steps=21 format=3 uid="uid://ght7fiyhumoj"]
+[gd_scene load_steps=22 format=3 uid="uid://ght7fiyhumoj"]
 
-[ext_resource type="PackedScene" uid="uid://mpb2w21jhky2" path="res://characters/enemy/enemy.tscn" id="1_mowns"]
-[ext_resource type="Texture2D" uid="uid://dyby7grdc6l1n" path="res://art/effects/enemy_afterdead_explosion_anim_f0.png" id="2_5k3ot"]
-[ext_resource type="Texture2D" uid="uid://cyligpmjbn03o" path="res://art/enemies/flying creature/fly_anim_f0.png" id="2_om2ga"]
-[ext_resource type="Texture2D" uid="uid://ev5y25sw27q7" path="res://art/effects/enemy_afterdead_explosion_anim_f1.png" id="3_24g5l"]
-[ext_resource type="Texture2D" uid="uid://daxug2tqpahyu" path="res://art/enemies/flying creature/fly_anim_f1.png" id="3_qpimr"]
-[ext_resource type="Texture2D" uid="uid://bq84wpagrl6ub" path="res://art/effects/enemy_afterdead_explosion_anim_f2.png" id="4_6l83i"]
-[ext_resource type="Texture2D" uid="uid://cv8sya2twvu0m" path="res://art/enemies/flying creature/fly_anim_f2.png" id="4_eihbx"]
-[ext_resource type="Texture2D" uid="uid://5h56iqkaddc0" path="res://art/effects/enemy_afterdead_explosion_anim_f3.png" id="5_5tiow"]
-[ext_resource type="Texture2D" uid="uid://diaydr48m8i4h" path="res://art/enemies/flying creature/fly_anim_f3.png" id="5_k2r14"]
-[ext_resource type="Script" path="res://characters/enemy/FlyingEnemyFSM.gd" id="6_vm3si"]
-[ext_resource type="AudioStream" uid="uid://b70ng6jjch654" path="res://audio/bat-death.mp3" id="11_8q0q6"]
+[ext_resource type="PackedScene" uid="uid://mpb2w21jhky2" path="res://characters/enemy/enemy.tscn" id="1_l5bwi"]
+[ext_resource type="Script" path="res://characters/enemy/flyingEnemy/flying_enemy.gd" id="2_67c2k"]
+[ext_resource type="Texture2D" uid="uid://dyby7grdc6l1n" path="res://art/effects/enemy_afterdead_explosion_anim_f0.png" id="2_y4gmx"]
+[ext_resource type="Texture2D" uid="uid://ev5y25sw27q7" path="res://art/effects/enemy_afterdead_explosion_anim_f1.png" id="3_1kqev"]
+[ext_resource type="Texture2D" uid="uid://bq84wpagrl6ub" path="res://art/effects/enemy_afterdead_explosion_anim_f2.png" id="4_cuf0o"]
+[ext_resource type="Texture2D" uid="uid://5h56iqkaddc0" path="res://art/effects/enemy_afterdead_explosion_anim_f3.png" id="5_7we3n"]
+[ext_resource type="Texture2D" uid="uid://cyligpmjbn03o" path="res://art/enemies/flying creature/fly_anim_f0.png" id="6_3oem3"]
+[ext_resource type="Texture2D" uid="uid://daxug2tqpahyu" path="res://art/enemies/flying creature/fly_anim_f1.png" id="7_ard56"]
+[ext_resource type="Texture2D" uid="uid://cv8sya2twvu0m" path="res://art/enemies/flying creature/fly_anim_f2.png" id="8_a64bc"]
+[ext_resource type="Texture2D" uid="uid://diaydr48m8i4h" path="res://art/enemies/flying creature/fly_anim_f3.png" id="9_iwfwg"]
+[ext_resource type="Script" path="res://characters/enemy/flyingEnemy/FlyingEnemyFSM.gd" id="10_d6t4c"]
+[ext_resource type="AudioStream" uid="uid://b70ng6jjch654" path="res://audio/bat-death.mp3" id="11_efss2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jmwc6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_5k3ot")
+"texture": ExtResource("2_y4gmx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_24g5l")
+"texture": ExtResource("3_1kqev")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_6l83i")
+"texture": ExtResource("4_cuf0o")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_5tiow")
+"texture": ExtResource("5_7we3n")
 }],
 "loop": true,
 "name": &"dead",
@@ -33,16 +34,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_om2ga")
+"texture": ExtResource("6_3oem3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_qpimr")
+"texture": ExtResource("7_ard56")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_eihbx")
+"texture": ExtResource("8_a64bc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_k2r14")
+"texture": ExtResource("9_iwfwg")
 }],
 "loop": true,
 "name": &"move",
@@ -289,8 +290,8 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_0ionx"]
 radius = 4.0
 
-[node name="FlyingEnemy" instance=ExtResource("1_mowns")]
-hitpoints = 10
+[node name="FlyingEnemy" instance=ExtResource("1_l5bwi")]
+script = ExtResource("2_67c2k")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_jmwc6")
@@ -302,7 +303,7 @@ position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_lqo3a")
 
 [node name="FiniteStateMachine" parent="." index="2"]
-script = ExtResource("6_vm3si")
+script = ExtResource("10_d6t4c")
 
 [node name="AnimationPlayer" parent="." index="3"]
 libraries = {
@@ -318,4 +319,4 @@ position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_0ionx")
 
 [node name="DeadSound" type="AudioStreamPlayer2D" parent="." index="8"]
-stream = ExtResource("11_8q0q6")
+stream = ExtResource("11_efss2")

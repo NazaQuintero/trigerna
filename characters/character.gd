@@ -16,7 +16,13 @@ signal hitpoints_changed(new_hitpoints)
 @onready var state_machine: Node = $FiniteStateMachine
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collectedCoins = get_tree().current_scene.get_node("CoinsCounterUi").get_child(0)
+var scene = preload("res://items/coin/Coin.tscn")
+
 var mov_direction: Vector2 = Vector2.ZERO
+
+
+func _initialize_values():
+	pass
 
 
 func _physics_process(_delta: float) -> void:

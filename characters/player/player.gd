@@ -2,6 +2,8 @@ extends Character
 
 enum {UP, DOWN}
 
+const MAX_HITPOINTS = 100
+
 @onready var screen_size: Vector2 = get_viewport_rect().size
 @onready var weapons: Node2D = $Weapons
 @onready var current_weapon: Node2D = weapons.get_child(0)
@@ -30,7 +32,18 @@ func _process(_delta: float) -> void:
 
 func update_health():
 	healthbar.value = self.hitpoints
-
+	
+func increase_hitpoints(value: int):
+	var new_hitpoints = self.hitpoints + value
+	if new_hitpoints >= MAX_HITPOINTS:
+		self.hitpoints = MAX_HITPOINTS
+	else: 
+		self.hitpoints = new_hitpoints
+	update_health()
+	
+	
+func increment_coins(value: int):
+	CoinsCounter.coins += value
 
 func get_input() -> void:
 	mov_direction = Vector2.ZERO
