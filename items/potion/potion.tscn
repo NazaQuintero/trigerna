@@ -1,0 +1,78 @@
+[gd_scene load_steps=13 format=3 uid="uid://mxnm7jm88h4s"]
+
+[ext_resource type="PackedScene" uid="uid://cve2cv0o0t7kc" path="res://items/base/BaseItem.tscn" id="1_njtk0"]
+[ext_resource type="Texture2D" uid="uid://rfoi7uim2iol" path="res://art/props_itens/potion_red.png" id="2_g4u24"]
+[ext_resource type="Texture2D" uid="uid://bhjflm2dboawd" path="res://art/props_itens/Collected.png" id="2_v8qx8"]
+[ext_resource type="Script" path="res://items/potion/potion.gd" id="2_y3c7f"]
+[ext_resource type="AudioStream" uid="uid://boxxj6ckreabu" path="res://audio/health-pickup.mp3" id="4_yylwx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cm3hs"]
+atlas = ExtResource("2_v8qx8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsr55"]
+atlas = ExtResource("2_v8qx8")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwsgb"]
+atlas = ExtResource("2_v8qx8")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wffbp"]
+atlas = ExtResource("2_v8qx8")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stnop"]
+atlas = ExtResource("2_v8qx8")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmxey"]
+atlas = ExtResource("2_v8qx8")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nfg1x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm3hs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsr55")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwsgb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wffbp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_stnop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmxey")
+}],
+"loop": true,
+"name": &"collected",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_g4u24")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Potion" instance=ExtResource("1_njtk0")]
+script = ExtResource("2_y3c7f")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_nfg1x")
+animation = &"idle"
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-1, -1)
+
+[node name="CollectedSound" parent="." index="2"]
+stream = ExtResource("4_yylwx")
