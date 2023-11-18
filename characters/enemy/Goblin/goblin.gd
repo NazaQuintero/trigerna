@@ -37,8 +37,8 @@ func _get_path_to_move_away_from_player() -> void:
 
 func _throw_knife() -> void:
 	var knife_init = knife.instantiate()
+	get_tree().current_scene.add_child(knife_init)	
 	knife_init.launch(global_position, _get_player_position(), projectile_speed)
-	get_tree().current_scene.add_child(knife_init)
 
 
 func _on_timer_timeout() -> void:
