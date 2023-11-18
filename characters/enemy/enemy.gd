@@ -2,7 +2,7 @@ extends Character
 class_name Enemy
 
 
-const COIN_SCENE = preload("res://Coin.tscn")
+const COIN_SCENE = preload("res://items/coin/coin.tscn")
 
 
 @onready var player: CharacterBody2D = get_tree().current_scene.get_node("Player")
@@ -47,3 +47,7 @@ func drop_coin():
 	var instance = COIN_SCENE.instantiate()
 	instance.position = self.position
 	get_parent().add_child(instance)
+
+
+func is_hit_by_player() -> void:
+	pass

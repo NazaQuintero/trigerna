@@ -78,3 +78,7 @@ func _switch_weapons(direction: int) -> void:
 	current_weapon.hide()
 	current_weapon = weapons.get_child(index)
 	current_weapon.show()
+
+
+func is_hit_by_enemy() -> void:
+	pass
