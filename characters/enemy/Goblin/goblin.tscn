@@ -282,7 +282,7 @@ script = ExtResource("2_3nbw6")
 projectile_speed = 150
 acceleration = 30
 max_speed = 75
-hitpoints = 10
+hitpoints = 4
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_yrqch")

@@ -1,8 +1,10 @@
 extends Enemy
 class_name FlyingEnemy
 
+
 func _init():
 	super()
+
 
 func _initialize_values(): 
 	self.hitpoints = 2

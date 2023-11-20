@@ -1,5 +1,6 @@
 extends FiniteStateMachine
 
+
 func _init() -> void:
 	_add_state("idle")
 	_add_state("hurt")
@@ -40,5 +41,6 @@ func _enter_state(_previous_state: int, new_state: int) -> void:
 			animation_player.play("hurt")
 		states.dead:
 			animation_player.play("dead")
+			parent.drop_coin()
 		states.idle:
 			animation_player.play("idle")

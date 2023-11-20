@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxox6urokpabn"]
+
+[ext_resource type="PackedScene" uid="uid://cxf7oq331t1ek" path="res://weapons/projectile.tscn" id="1_xiv1s"]
+[ext_resource type="Script" path="res://weapons/throwing_knife.gd" id="2_2l6py"]
+[ext_resource type="Texture2D" uid="uid://bdal2g6x2p284" path="res://art/enemies/goblin/goblin_knife.png" id="3_ov3fl"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dsju0"]
+radius = 2.0
+height = 10.0
+
+[node name="ThrowingKnife" instance=ExtResource("1_xiv1s")]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("2_2l6py")
+
+[node name="CollisionShape2D" parent="." index="0"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_dsju0")
+
+[node name="Sprite2D" parent="." index="1"]
+rotation = 0.785398
+texture = ExtResource("3_ov3fl")

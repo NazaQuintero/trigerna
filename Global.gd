@@ -1,5 +1,12 @@
 extends Node
 
+
+const MASK_LAYER_WORLD: int = 1
+const MASK_LAYER_PLAYER: int = 2
+const MASK_LAYER_ENEMY: int = 3
+const MASK_LAYER_ITEM: int = 4
+
+
 func instance_node(node, location, parent):
 	var node_instance = node.instantiate()
 	parent.add_child(node_instance)

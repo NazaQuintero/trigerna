@@ -61,7 +61,7 @@ func get_input() -> void:
 			_switch_weapons(UP)
 		elif Input.is_action_just_released("ui_next_weapon"):
 			_switch_weapons(DOWN)
-	current_weapon.get_input()
+	current_weapon._get_input()
 
 
 func _switch_weapons(direction: int) -> void:
@@ -78,3 +78,7 @@ func _switch_weapons(direction: int) -> void:
 	current_weapon.hide()
 	current_weapon = weapons.get_child(index)
 	current_weapon.show()
+
+
+func is_hit_by_enemy() -> void:
+	pass
