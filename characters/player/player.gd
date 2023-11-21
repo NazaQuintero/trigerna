@@ -1,6 +1,6 @@
 extends Character
 
-enum {FIRST, SECOND}
+enum {FIRST, SECOND, THIRD}
 
 const MAX_HITPOINTS = 100
 
@@ -63,6 +63,8 @@ func get_input() -> void:
 		_switch_weapons(FIRST)
 	elif Input.is_action_pressed("ui_second_weapon"):
 		_switch_weapons(SECOND)
+	elif Input.is_action_pressed("ui_third_weapon"):
+		_switch_weapons(THIRD)
 	current_weapon._get_input()
 
 

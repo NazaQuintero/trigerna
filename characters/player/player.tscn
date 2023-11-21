@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://c5pdqw1gfk41k"]
+[gd_scene load_steps=36 format=3 uid="uid://c5pdqw1gfk41k"]
 
 [ext_resource type="PackedScene" uid="uid://bg8rmo2l8j1x8" path="res://character.tscn" id="1_so2ru"]
 [ext_resource type="Script" path="res://characters/player/player.gd" id="1_xmla5"]
@@ -26,6 +26,7 @@
 [ext_resource type="AudioStream" uid="uid://cjxuf87kkots5" path="res://audio/player_hurt.mp3" id="22_jgbvx"]
 [ext_resource type="AudioStream" uid="uid://umlthsnl218g" path="res://audio/footsteps.mp3" id="23_e0yhi"]
 [ext_resource type="AudioStream" uid="uid://ctnv4aauy58uw" path="res://audio/player-death.mp3" id="23_iedic"]
+[ext_resource type="PackedScene" uid="uid://58wicuucy5h" path="res://weapons/gun.tscn" id="23_xcoe1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_drogp"]
 animations = [{
@@ -369,6 +370,9 @@ script = ExtResource("15_rimmr")
 [node name="Crossbow" parent="Weapons" index="1" instance=ExtResource("20_g55vv")]
 visible = false
 position = Vector2(1, 0)
+
+[node name="Gun" parent="Weapons" index="2" instance=ExtResource("23_xcoe1")]
+visible = false
 
 [node name="AnimationPlayer" parent="." index="4"]
 libraries = {

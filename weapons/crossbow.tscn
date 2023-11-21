@@ -2,8 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://0ii8u4p7i7fv" path="res://weapons/ranged_weapon.tscn" id="1_xn2ar"]
 [ext_resource type="Script" path="res://weapons/crossbow.gd" id="2_en0f7"]
-[ext_resource type="Texture2D" uid="uid://chv7tgt8ysal6" path="res://art/weapons/crossbow.png" id="3_sv5lw"]
 [ext_resource type="AudioStream" uid="uid://dej2qsdnybl1g" path="res://audio/arrow_thown.mp3" id="4_xtvlk"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a3oxa"]
+load_path = "res://.godot/imported/crossbow.png-248bc0390e8b1f9c88935cac31c0e208.ctex"
 
 [node name="Crossbow" instance=ExtResource("1_xn2ar")]
 show_behind_parent = true
@@ -13,7 +15,7 @@ script = ExtResource("2_en0f7")
 position = Vector2(13, 4.31915e-07)
 rotation = 2.38237
 scale = Vector2(0.00826117, 0.00864343)
-texture = ExtResource("3_sv5lw")
+texture = SubResource("CompressedTexture2D_a3oxa")
 
 [node name="ArrowThrown" type="AudioStreamPlayer2D" parent="." index="2"]
 stream = ExtResource("4_xtvlk")
