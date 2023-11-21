@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cp3qmwstx18xx"]
+
+[ext_resource type="PackedScene" uid="uid://cxf7oq331t1ek" path="res://weapons/projectile.tscn" id="1_5xmb8"]
+[ext_resource type="Script" path="res://weapons/gun_bullet.gd" id="2_l1cme"]
+[ext_resource type="Texture2D" uid="uid://b7p4onm3mjnpo" path="res://art/weapons/bala_pistola.png" id="3_bwsnm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qtkrk"]
+radius = 2.0
+height = 6.0
+
+[node name="GunBullet" instance=ExtResource("1_5xmb8")]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("2_l1cme")
+
+[node name="CollisionShape2D" parent="." index="0"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_qtkrk")
+
+[node name="Sprite2D" parent="." index="1"]
+rotation = -0.00872665
+scale = Vector2(1.04045, 0.865122)
+texture = ExtResource("3_bwsnm")

@@ -5,10 +5,10 @@ class_name FiniteStateMachine
 @onready var parent: Character = get_parent()
 @onready var animation_player: AnimationPlayer = parent.get_node("AnimationPlayer")
 @onready var punch_sound: AudioStreamPlayer2D = parent.get_node("PunchSoundHit")
-@onready var flying_enemy_death_sound: AudioStreamPlayer2D = parent.get_node("DeadSound")
+@onready var death_sound: AudioStreamPlayer2D = parent.get_node("DeathSound")
 @onready var player_hit: AudioStreamPlayer2D = parent.get_node("PlayerHit")
 @onready var player_hurt: AudioStreamPlayer2D = parent.get_node("PlayerHurt")
-@onready var player_death: AudioStreamPlayer2D = parent.get_node("PlayerDeath")
+#@onready var player_death: AudioStreamPlayer2D = parent.get_node("PlayerDeath")
 
 var states: Dictionary = {}
 var previous_state: int = -1
