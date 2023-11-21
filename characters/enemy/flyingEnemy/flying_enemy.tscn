@@ -292,10 +292,11 @@ radius = 4.0
 
 [node name="FlyingEnemy" instance=ExtResource("1_l5bwi")]
 script = ExtResource("2_67c2k")
+max_speed = 0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_jmwc6")
-animation = &"move"
+animation = &"dead"
 frame = 3
 
 [node name="CollisionShape2D" parent="." index="1"]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://fb0sluc1rwf"]
+
+[ext_resource type="Script" path="res://inventory/inventory_ui_slot.gd" id="1_sa2vv"]
+[ext_resource type="Texture2D" uid="uid://baq5qepy8ql7o" path="res://art/ui/inventory_slot.png" id="1_vubpx"]
+
+[node name="inventory_UI_slot" type="Panel"]
+custom_minimum_size = Vector2(16, 16)
+offset_right = 16.0
+offset_bottom = 16.0
+script = ExtResource("1_sa2vv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -9.53674e-07)
+scale = Vector2(0.0559441, 0.0559441)
+texture = ExtResource("1_vubpx")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="weapon_display" type="Sprite2D" parent="CenterContainer/Panel"]

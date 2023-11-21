@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://cxf7oq331t1ek" path="res://weapons/projectile.tscn" id="1_d4lj4"]
 [ext_resource type="Script" path="res://weapons/arrow.gd" id="2_5uc1w"]
-[ext_resource type="Texture2D" uid="uid://bdal2g6x2p284" path="res://art/enemies/goblin/goblin_knife.png" id="3_2tomh"]
+[ext_resource type="Texture2D" uid="uid://bhcdgwsn8yyer" path="res://art/weapons/arrow.png" id="3_372y0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qtkrk"]
 radius = 2.0
-height = 10.0
+height = 12.0
 
 [node name="Arrow" instance=ExtResource("1_d4lj4")]
 collision_layer = 0
@@ -19,5 +19,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_qtkrk")
 
 [node name="Sprite2D" parent="." index="1"]
+position = Vector2(0, 3.55271e-15)
 rotation = 0.785398
-texture = ExtResource("3_2tomh")
+scale = Vector2(0.0254022, 0.0262201)
+texture = ExtResource("3_372y0")

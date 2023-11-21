@@ -1,8 +1,9 @@
-[gd_scene load_steps=32 format=3 uid="uid://c5pdqw1gfk41k"]
+[gd_scene load_steps=35 format=3 uid="uid://c5pdqw1gfk41k"]
 
 [ext_resource type="PackedScene" uid="uid://bg8rmo2l8j1x8" path="res://character.tscn" id="1_so2ru"]
 [ext_resource type="Script" path="res://characters/player/player.gd" id="1_xmla5"]
 [ext_resource type="Texture2D" uid="uid://cev7fifuuig4s" path="res://art/heroes/knight/knight_idle_anim_f0.png" id="2_kxhg5"]
+[ext_resource type="Resource" uid="uid://duochd5cheeln" path="res://inventory/player_weapons.tres" id="3_0wmln"]
 [ext_resource type="Texture2D" uid="uid://3ferhk6kg21u" path="res://art/heroes/knight/knight_idle_anim_f1.png" id="3_2rqlv"]
 [ext_resource type="Texture2D" uid="uid://dyby7grdc6l1n" path="res://art/effects/enemy_afterdead_explosion_anim_f0.png" id="3_hbvqq"]
 [ext_resource type="Texture2D" uid="uid://ev5y25sw27q7" path="res://art/effects/enemy_afterdead_explosion_anim_f1.png" id="4_bk2on"]
@@ -23,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://ooa3oj0g2sj6" path="res://weapons/crossbow.tscn" id="20_g55vv"]
 [ext_resource type="AudioStream" uid="uid://da26sq6uwukgl" path="res://audio/player-hit.mp3" id="21_xeolj"]
 [ext_resource type="AudioStream" uid="uid://cjxuf87kkots5" path="res://audio/player_hurt.mp3" id="22_jgbvx"]
+[ext_resource type="AudioStream" uid="uid://umlthsnl218g" path="res://audio/footsteps.mp3" id="23_e0yhi"]
 [ext_resource type="AudioStream" uid="uid://ctnv4aauy58uw" path="res://audio/player-death.mp3" id="23_iedic"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_drogp"]
@@ -95,8 +97,36 @@ animations = [{
 radius = 5.0
 height = 14.0
 
+[sub_resource type="Animation" id="Animation_0hort"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerHurt:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerHurt:stream")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("22_jgbvx")]
+}
+
 [sub_resource type="Animation" id="Animation_ldlbq"]
 resource_name = "dead"
+length = 1.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -140,7 +170,7 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(1),
+"times": PackedFloat32Array(1.1),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -171,10 +201,22 @@ tracks/5/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PlayerHurt:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("22_jgbvx")]
+}
 
 [sub_resource type="Animation" id="Animation_o4pqb"]
 resource_name = "hurt"
-length = 0.2
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -230,7 +272,7 @@ tracks/4/path = NodePath("PlayerHurt:playing")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.4),
+"times": PackedFloat32Array(0.1),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -296,6 +338,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tl5rj"]
 _data = {
+"RESET": SubResource("Animation_0hort"),
 "dead": SubResource("Animation_ldlbq"),
 "hurt": SubResource("Animation_o4pqb"),
 "idle": SubResource("Animation_n0nvm"),
@@ -306,11 +349,11 @@ _data = {
 collision_layer = 10
 collision_mask = 5
 script = ExtResource("1_xmla5")
+weapons_inventory = ExtResource("3_0wmln")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_drogp")
-animation = &"idle"
-frame = 5
+animation = &"run"
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(1, -1)
@@ -321,10 +364,11 @@ script = ExtResource("15_rimmr")
 
 [node name="Weapons" type="Node2D" parent="." index="3"]
 
-[node name="Crossbow" parent="Weapons" index="0" instance=ExtResource("20_g55vv")]
+[node name="Fist" parent="Weapons" index="0" instance=ExtResource("16_e1bq8")]
 
-[node name="Fist" parent="Weapons" index="1" instance=ExtResource("16_e1bq8")]
+[node name="Crossbow" parent="Weapons" index="1" instance=ExtResource("20_g55vv")]
 visible = false
+position = Vector2(1, 0)
 
 [node name="AnimationPlayer" parent="." index="4"]
 libraries = {
@@ -343,9 +387,15 @@ scale = Vector2(0.1, 0.1)
 stream = ExtResource("21_xeolj")
 pitch_scale = 1.63
 
-[node name="PlayerHurt" type="AudioStreamPlayer2D" parent="." index="7"]
+[node name="PlayerDeath" type="AudioStreamPlayer2D" parent="." index="7"]
+stream = ExtResource("23_iedic")
+
+[node name="PlayerHurt" type="AudioStreamPlayer2D" parent="." index="8"]
 stream = ExtResource("22_jgbvx")
 pitch_scale = 1.05
 
-[node name="PlayerDeath" type="AudioStreamPlayer2D" parent="." index="8"]
-stream = ExtResource("23_iedic")
+[node name="FootSteps" type="AudioStreamPlayer2D" parent="." index="9"]
+stream = ExtResource("23_e0yhi")
+volume_db = -8.276
+pitch_scale = 0.84
+max_distance = 1996.0
