@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cc0xch380dmlu"]
+
+[ext_resource type="Script" path="res://level_switcher.gd" id="1_a3bpp"]
+
+[node name="LevelSwitcher" type="Node"]
+script = ExtResource("1_a3bpp")
