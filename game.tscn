@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://dpokl7aedr8ng"]
+[gd_scene load_steps=12 format=3 uid="uid://dpokl7aedr8ng"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_75y4w"]
 [ext_resource type="Script" path="res://Menu.gd" id="2_qykiq"]
 [ext_resource type="Theme" uid="uid://b5ydh8ikvlvhy" path="res://buttonTheme.tres" id="3_182f4"]
-[ext_resource type="PackedScene" path="res://coins_counter_ui.tscn" id="4_2a0kh"]
+[ext_resource type="PackedScene" uid="uid://dqcxhrjkei4oy" path="res://coins_counter_ui.tscn" id="4_2a0kh"]
 [ext_resource type="AudioStream" uid="uid://cs13dq8jvmhd0" path="res://press_button.mp3" id="4_pppum"]
 [ext_resource type="PackedScene" uid="uid://mxnm7jm88h4s" path="res://items/potion/potion.tscn" id="5_2yngj"]
 [ext_resource type="Texture2D" uid="uid://dwlv5vpmgkod8" path="res://art/full tilemap.png" id="8_lupfu"]
+[ext_resource type="PackedScene" uid="uid://b6e3fi6m7r54b" path="res://scene_transition.tscn" id="9_ocf27"]
 [ext_resource type="PackedScene" uid="uid://cc0xch380dmlu" path="res://level_switcher.tscn" id="9_s8o4n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yytiq"]
@@ -80,6 +81,8 @@ position = Vector2(417, 6)
 position = Vector2(135, 70)
 
 [node name="LevelSwitcher" parent="." instance=ExtResource("9_s8o4n")]
+
+[node name="SceneTransition" parent="." instance=ExtResource("9_ocf27")]
 
 [node name="Menu" type="Control" parent="."]
 layout_mode = 3

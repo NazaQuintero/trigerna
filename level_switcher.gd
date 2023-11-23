@@ -2,9 +2,10 @@ extends Node
 class_name LevelSwitcher
 
 var next_level
+var scene_transition =  preload("res://scene_transition.tscn")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+
+	
 
 func _level_handler(level_name: String) -> void:
 	match level_name:
@@ -14,7 +15,9 @@ func _level_handler(level_name: String) -> void:
 			next_level = "player_won" # falta hacer esta escena
 		_:
 			return
-	SceneTransition.change_scene("res://"+ next_level + ".tscn")
+	var transition = scene_transition.instantiate()
+	get_tree().current_scene.get_parent().add_child(scene_transition)
+	transition.change_scene("res://"+ next_level + ".tscn")
 
 
 func _player_lose() -> void:

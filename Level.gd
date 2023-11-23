@@ -7,6 +7,7 @@ var enemy_list: Array
 var player = preload("res://characters/player/player.tscn")
 var level_switcher = preload("res://level_switcher.tscn")
 
+
 func _ready():
 	Global.instance_node(player, get_viewport_rect().size/2, self)
 	level_switcher = level_switcher.instantiate()
@@ -24,6 +25,7 @@ func _spawn_enemies():
 	var enemy_position = get_random_position()
 	while is_in_visible_square_box(enemy_position):
 		enemy_position = get_random_position()
+		
 	Global.instance_node(enemy_list.pick_random(), enemy_position, self)
 
 func _switch_level(level_name : String) -> void:
