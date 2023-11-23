@@ -2,9 +2,12 @@ extends Node
 class_name SceneTransition
 
 @onready var transition = $TransitionFade
+var switcher
 
-func change_scene(scene_name : String) -> void:
-	transition.play("fade_out")
-	await transition.animation_finished
-	Global.get_tree().change_scene_to_file(scene_name)
+func change_scene(level_switch: Node) -> void:
+	switcher = level_switch
+	transition.play("fade_in")
 
+
+func trigger_switch() -> void:
+	switcher.change_scene()

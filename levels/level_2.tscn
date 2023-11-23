@@ -1,10 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvorppvs3pvao"]
+[gd_scene load_steps=7 format=3 uid="uid://bvorppvs3pvao"]
 
-[ext_resource type="Script" path="res://level_2.gd" id="1_b6wak"]
-[ext_resource type="Texture2D" uid="uid://dwlv5vpmgkod8" path="res://art/full tilemap.png" id="1_hlhgq"]
+[ext_resource type="Script" path="res://levels/level_2.gd" id="1_6kgjr"]
+[ext_resource type="Texture2D" uid="uid://dwlv5vpmgkod8" path="res://art/full tilemap.png" id="2_3v6p8"]
+[ext_resource type="PackedScene" uid="uid://cuoliggrvia3v" path="res://coins_counter_ui.tscn" id="2_afnx7"]
+[ext_resource type="PackedScene" uid="uid://cc0xch380dmlu" path="res://level_switcher.tscn" id="4_3o11y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aiuyq"]
-texture = ExtResource("1_hlhgq")
+texture = ExtResource("2_3v6p8")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -64,8 +66,11 @@ texture = ExtResource("1_hlhgq")
 sources/0 = SubResource("TileSetAtlasSource_aiuyq")
 
 [node name="Level2" type="Node2D"]
-script = ExtResource("1_b6wak")
+script = ExtResource("1_6kgjr")
 level_name = "Level2"
+
+[node name="CoinsCounterUi" parent="." instance=ExtResource("2_afnx7")]
+position = Vector2(417, 6)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_0q3hc")
@@ -89,8 +94,11 @@ layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array()
 
 [node name="TimerLevel2" type="Timer" parent="."]
+wait_time = 30.0
 
 [node name="SpawnTimer" type="Timer" parent="."]
+
+[node name="LevelSwitcher" parent="." instance=ExtResource("4_3o11y")]
 
 [connection signal="timeout" from="TimerLevel2" to="." method="_on_timer_level_2_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

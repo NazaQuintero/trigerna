@@ -5,12 +5,11 @@ var enemy_list: Array
 
 @export var level_name = "Level"
 var player = preload("res://characters/player/player.tscn")
-var level_switcher = preload("res://level_switcher.tscn")
+@onready var level_switcher = $LevelSwitcher
 
 
 func _ready():
 	Global.instance_node(player, get_viewport_rect().size/2, self)
-	level_switcher = level_switcher.instantiate()
 
 func get_random_position() -> Vector2:
 	return Vector2(randi_range(-160, 670), randi_range(-90, 390))

@@ -9,7 +9,6 @@ const MASK_LAYER_ITEM: int = 4
 var instance
 
 
-	
 func instance_node(node, location, parent):
 	var node_instance = node.instantiate()
 	parent.add_child(node_instance)

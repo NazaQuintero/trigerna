@@ -8,7 +8,7 @@ const MAX_HITPOINTS = 100
 @onready var weapons: Node2D = $Weapons
 @onready var current_weapon: Node2D = weapons.get_child(0)
 @onready var healthbar: ProgressBar = $ProgressBar
-
+@onready var collectedCoins = get_tree().current_scene.get_node("CoinsCounterUi").get_child(0)
 
 var damage_modifier: int = 2
 
@@ -28,6 +28,7 @@ func _process(_delta: float) -> void:
 	
 	current_weapon.move(mouse_direction)
 	update_health()
+	collectedCoins.text = "Coins: " + str(CoinsCounter.coins)
 
 
 func update_health():

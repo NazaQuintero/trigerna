@@ -7,7 +7,8 @@ var enemies  = [
 signal level_completed(lvl : String)
 @onready var timer_level_1 = $TimerLevel1
 @onready var spawn_timer = $SpawnTimer
-# Called when the node enters the scene tree for the first time.
+
+
 func _ready():
 	super()
 	timer_level_1.start()
@@ -18,6 +19,6 @@ func _on_timer_level_1_timeout():
 	_switch_level(level_name)
 	
 func _on_spawn_timer_timeout():
-	#_spawn_enemies()
+	_spawn_enemies()
 	pass
 	

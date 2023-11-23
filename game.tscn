@@ -1,9 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://dpokl7aedr8ng"]
+[gd_scene load_steps=10 format=3 uid="uid://dpokl7aedr8ng"]
 
-[ext_resource type="Script" path="res://game.gd" id="1_75y4w"]
 [ext_resource type="Script" path="res://Menu.gd" id="2_qykiq"]
 [ext_resource type="Theme" uid="uid://b5ydh8ikvlvhy" path="res://buttonTheme.tres" id="3_182f4"]
-[ext_resource type="PackedScene" uid="uid://dqcxhrjkei4oy" path="res://coins_counter_ui.tscn" id="4_2a0kh"]
 [ext_resource type="AudioStream" uid="uid://cs13dq8jvmhd0" path="res://press_button.mp3" id="4_pppum"]
 [ext_resource type="PackedScene" uid="uid://mxnm7jm88h4s" path="res://items/potion/potion.tscn" id="5_2yngj"]
 [ext_resource type="Texture2D" uid="uid://dwlv5vpmgkod8" path="res://art/full tilemap.png" id="8_lupfu"]
@@ -72,10 +70,6 @@ sources/0 = SubResource("TileSetAtlasSource_yytiq")
 
 [node name="Game" type="Node2D"]
 texture_filter = 1
-script = ExtResource("1_75y4w")
-
-[node name="CoinsCounterUi" parent="." instance=ExtResource("4_2a0kh")]
-position = Vector2(417, 6)
 
 [node name="BaseItem" parent="." instance=ExtResource("5_2yngj")]
 position = Vector2(135, 70)

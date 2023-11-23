@@ -1,20 +1,19 @@
 extends Control
 
-var level = preload("res://level.tscn")
+var level = preload("res://levels/level.tscn")
 var player = preload("res://characters/player/player.tscn")
-var scene_transition =  preload("res://scene_transition.tscn")
 var transition
 
 @onready var press_sound = $PressButton
+@onready var level_switcher = get_parent().get_node("LevelSwitcher")
 func _ready():
-	pass	
+	pass
+
 
 func _on_play_button_pressed() -> void:	
 	press_sound.play()
-	transition = scene_transition.instantiate()
-	get_parent().add_child(transition)
-	transition.change_scene("res://level_1.tscn")
-	
+	level_switcher._level_handler("Level0")
+
 
 func _on_quit_button_pressed() -> void:
 	press_sound.play()
