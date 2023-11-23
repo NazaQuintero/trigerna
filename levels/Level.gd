@@ -35,4 +35,3 @@ func _player_died() -> void:
 
 func _lose() -> void:
 	level_switcher._player_lose()
-

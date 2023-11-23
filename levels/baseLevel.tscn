@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bqcen8gh73amp"]
+[gd_scene load_steps=8 format=3 uid="uid://dbypqa253refi"]
 
-[ext_resource type="Script" path="res://levels/baseLevel.gd" id="1_adfe1"]
-[ext_resource type="PackedScene" uid="uid://cuoliggrvia3v" path="res://coins_counter_ui.tscn" id="2_1u2c6"]
-[ext_resource type="Texture2D" uid="uid://dwlv5vpmgkod8" path="res://art/full tilemap.png" id="2_rvq7f"]
-[ext_resource type="PackedScene" uid="uid://cc0xch380dmlu" path="res://level_switcher.tscn" id="4_c06ml"]
+[ext_resource type="Script" path="res://levels/baseLevel.gd" id="1_b4h5k"]
+[ext_resource type="PackedScene" uid="uid://cuoliggrvia3v" path="res://coins_counter_ui.tscn" id="2_qp1io"]
+[ext_resource type="Texture2D" uid="uid://dwlv5vpmgkod8" path="res://art/full tilemap.png" id="3_iyuq3"]
+[ext_resource type="PackedScene" uid="uid://cc0xch380dmlu" path="res://level_switcher.tscn" id="4_f0ccd"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_cm515"]
 vertices = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
@@ -11,7 +11,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)])
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jq0j8"]
-texture = ExtResource("2_rvq7f")
+texture = ExtResource("3_iyuq3")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -183,11 +183,11 @@ physics_layer_0/collision_mask = 6
 navigation_layer_0/layers = 4
 sources/0 = SubResource("TileSetAtlasSource_jq0j8")
 
-[node name="Level1" type="Node2D"]
-script = ExtResource("1_adfe1")
+[node name="Level" type="Node2D"]
+script = ExtResource("1_b4h5k")
 level_name = "Level1"
 
-[node name="CoinsCounterUi" parent="." instance=ExtResource("2_1u2c6")]
+[node name="CoinsCounterUi" parent="." instance=ExtResource("2_qp1io")]
 position = Vector2(417, 6)
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -200,7 +200,7 @@ wait_time = 5.0
 
 [node name="SpawnTimer" type="Timer" parent="."]
 
-[node name="LevelSwitcher" parent="." instance=ExtResource("4_c06ml")]
+[node name="LevelSwitcher" parent="." instance=ExtResource("4_f0ccd")]
 
 [connection signal="timeout" from="TimerLevel" to="." method="_on_timer_level_1_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

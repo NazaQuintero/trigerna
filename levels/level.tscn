@@ -1,11 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bj6a3x7spqnhj"]
+[gd_scene load_steps=4 format=3 uid="uid://papgdqd8ntsg"]
 
-[ext_resource type="Script" path="res://levels/Level.gd" id="1_oei27"]
-[ext_resource type="PackedScene" uid="uid://clag8dqd8bg6u" path="res://levels/level_1.tscn" id="2_800jf"]
+[ext_resource type="Script" path="res://levels/level.gd" id="1_a03gx"]
+[ext_resource type="PackedScene" uid="uid://bqcen8gh73amp" path="res://levels/level_1.tscn" id="2_800jf"]
 [ext_resource type="PackedScene" uid="uid://cc0xch380dmlu" path="res://level_switcher.tscn" id="3_yopd1"]
 
 [node name="Level" type="Node2D"]
-script = ExtResource("1_oei27")
+script = ExtResource("1_a03gx")
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 2.0
