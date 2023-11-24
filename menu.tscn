@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://6fcg3s3lipa0"]
+[gd_scene load_steps=4 format=3 uid="uid://6fcg3s3lipa0"]
 
 [ext_resource type="Script" path="res://Menu.gd" id="1_0s1tj"]
 [ext_resource type="Theme" uid="uid://b5ydh8ikvlvhy" path="res://buttonTheme.tres" id="2_0tglq"]
+[ext_resource type="AudioStream" uid="uid://cs13dq8jvmhd0" path="res://press_button.mp3" id="3_fp4tk"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -33,6 +34,9 @@ text = "Play"
 layout_mode = 2
 theme = ExtResource("2_0tglq")
 text = "Quit"
+
+[node name="PressButton" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_fp4tk")
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

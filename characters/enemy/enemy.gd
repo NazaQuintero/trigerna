@@ -5,7 +5,7 @@ class_name Enemy
 const COIN_SCENE = preload("res://items/coin/coin.tscn")
 
 
-@onready var player: CharacterBody2D = get_tree().current_scene.get_node("Player")
+@onready var player: CharacterBody2D = get_parent().get_node("Player")
 @onready var path_timer: Timer = $PathTimer
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 

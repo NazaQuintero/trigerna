@@ -1,15 +1,15 @@
 extends Node2D
 class_name Level
 
-var enemy_list: Array
-
+@export var enemy_list: Array
 @export var level_name = "Level"
 var player = preload("res://characters/player/player.tscn")
-@onready var level_switcher = $LevelSwitcher
+@onready var level_timer = $TimerLevel
+@onready var spawn_timer = $SpawnTimer
 
-
-func _ready():
-	Global.instance_node(player, get_viewport_rect().size/2, self)
+func _ready() -> void:
+	level_timer.start()
+	spawn_timer.start()
 
 func get_random_position() -> Vector2:
 	return Vector2(randi_range(-160, 670), randi_range(-90, 390))
@@ -28,10 +28,13 @@ func _spawn_enemies():
 	Global.instance_node(enemy_list.pick_random(), enemy_position, self)
 
 func _switch_level(level_name : String) -> void:
-	level_switcher._level_handler(level_name)
+	Switcher._level_handler(level_name)
 	
 func _player_died() -> void:
 	connect("player_died", Callable(self, "_lose"))
 
 func _lose() -> void:
-	level_switcher._player_lose()
+	Switcher._player_lose()
+
+func _on_spawn_timer_timeout() -> void:
+	_spawn_enemies()

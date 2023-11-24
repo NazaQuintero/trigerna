@@ -20,7 +20,7 @@ config/icon="res://icon.svg"
 BgMusic="*res://bg_music.tscn"
 CoinsCounter="*res://globals/CoinsCounter.gd"
 Global="*res://Global.gd"
-Transition="*res://scene_transition.tscn"
+Switcher="*res://level_switcher.tscn"
 
 [display]
 

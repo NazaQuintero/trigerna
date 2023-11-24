@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ch2bam08dbnkc"]
 
-[ext_resource type="PackedScene" uid="uid://dbypqa253refi" path="res://levels/baseLevel.tscn" id="1_xy4mf"]
+[ext_resource type="PackedScene" uid="uid://dbypqa253refi" path="res://levels/base_level.tscn" id="1_xy4mf"]
 
 [node name="Level2" instance=ExtResource("1_xy4mf")]
 

@@ -8,7 +8,8 @@ const MAX_HITPOINTS = 100
 @onready var weapons: Node2D = $Weapons
 @onready var current_weapon: Node2D = weapons.get_child(0)
 @onready var healthbar: ProgressBar = $ProgressBar
-@onready var collectedCoins = get_tree().current_scene.get_node("CoinsCounterUi").get_child(0)
+@onready var collectedCoins = get_parent().get_node("CoinsCounterUi").get_child(0)
+
 
 var damage_modifier: int = 2
 
@@ -33,7 +34,8 @@ func _process(_delta: float) -> void:
 
 func update_health():
 	healthbar.value = self.hitpoints
-	
+
+
 func increase_hitpoints(value: int):
 	var new_hitpoints = self.hitpoints + value
 	if new_hitpoints >= MAX_HITPOINTS:
@@ -41,10 +43,11 @@ func increase_hitpoints(value: int):
 	else: 
 		self.hitpoints = new_hitpoints
 	update_health()
-	
-	
+
+
 func increment_coins(value: int):
 	CoinsCounter.coins += value
+
 
 func get_input() -> void:
 	mov_direction = Vector2.ZERO
@@ -83,3 +86,4 @@ func _switch_weapons(direction: int) -> void:
 
 func is_hit_by_enemy() -> void:
 	pass
+
