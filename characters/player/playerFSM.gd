@@ -46,6 +46,8 @@ func _enter_state(_previous_state: int, new_state: int) -> void:
 			animation_player.play("hurt")
 		states.dead:
 			animation_player.play("dead")
+			Switcher._player_lose()
+			
 
 
 func _exit_state(_state: int) -> void:

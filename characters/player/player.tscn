@@ -354,7 +354,8 @@ weapons_inventory = ExtResource("3_0wmln")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_drogp")
-animation = &"run"
+animation = &"dead"
+frame = 3
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(1, -1)
@@ -403,3 +404,5 @@ stream = ExtResource("23_e0yhi")
 volume_db = -8.276
 pitch_scale = 0.84
 max_distance = 1996.0
+
+[connection signal="animation_finished" from="AnimationPlayer" to="FiniteStateMachine" method="_on_animation_player_animation_finished"]
