@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://ceq7rl2exrexf"]
+
+[ext_resource type="FontVariation" uid="uid://cks81d4cj4m8e" path="res://fonts/levelsfont.tres" id="1_kb3o4"]
+[ext_resource type="Script" path="res://levels/level1-label.gd" id="2_d0l53"]
+[ext_resource type="AudioStream" uid="uid://vvn3c0jx6x4x" path="res://audio/typing-keyboard.mp3" id="3_whafe"]
+
+[node name="Label" type="Label"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 184.0
+offset_top = 123.5
+offset_right = 296.0
+offset_bottom = 146.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.952941, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_kb3o4")
+theme_override_font_sizes/font_size = 0
+visible_characters = 0
+visible_ratio = 0.0
+script = ExtResource("2_d0l53")
+
+[node name="KeyboardTyping" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_whafe")
+
+[connection signal="finished" from="KeyboardTyping" to="." method="_on_audio_stream_player_2d_finished"]

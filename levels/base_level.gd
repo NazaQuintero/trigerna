@@ -3,6 +3,7 @@ class_name Level
 
 @export var enemy_list: Array
 @export var level_name = "Level"
+@onready var ready_sound = $ReadyFight
 var player = preload("res://characters/player/player.tscn")
 
 
@@ -33,3 +34,6 @@ func _player_died() -> void:
 
 func _lose() -> void:
 	Switcher._player_lose()
+
+func start_sound() -> void:
+	ready_sound.play()

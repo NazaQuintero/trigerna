@@ -9,9 +9,9 @@ func _level_handler(level_name: String) -> void:
 	match level_name:
 		"level_menu":
 			next_level = "level_1"
-		"level_1":
+		"Level 1":
 			next_level = "level_2"
-		"level_2":
+		"Level 2":
 			next_level = "level_1" # falta hacer esta escena player_won
 		_:
 			return
