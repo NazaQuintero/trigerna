@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbypqa253refi"]
+[gd_scene load_steps=10 format=3 uid="uid://dbypqa253refi"]
 
 [ext_resource type="Script" path="res://levels/base_level.gd" id="1_emthn"]
 [ext_resource type="PackedScene" uid="uid://cuoliggrvia3v" path="res://coins_counter_ui.tscn" id="2_e0wpo"]
 [ext_resource type="Texture2D" uid="uid://dwlv5vpmgkod8" path="res://art/full tilemap.png" id="3_og4f2"]
+[ext_resource type="PackedScene" uid="uid://51hd8ou3eo0v" path="res://inventory/inventory_ui.tscn" id="4_t4hll"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_q0q16"]
 vertices = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
@@ -317,9 +318,6 @@ sources/0 = SubResource("TileSetAtlasSource_jq0j8")
 script = ExtResource("1_emthn")
 level_name = "Level1"
 
-[node name="CoinsCounterUi" parent="." instance=ExtResource("2_e0wpo")]
-position = Vector2(417, 6)
-
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_fsinj")
 format = 2
@@ -329,6 +327,15 @@ layer_0/tile_data = PackedInt32Array(0, 196608, 1, 1, 196608, 1, 2, 196608, 1, 3
 wait_time = 5.0
 
 [node name="SpawnTimer" type="Timer" parent="."]
+
+[node name="CoinsCounterUi" parent="." instance=ExtResource("2_e0wpo")]
+position = Vector2(417, 6)
+
+[node name="Inventory_UI" parent="." instance=ExtResource("4_t4hll")]
+offset_left = 193.0
+offset_top = 5.0
+offset_right = 278.0
+offset_bottom = 26.0
 
 [connection signal="timeout" from="TimerLevel" to="." method="_on_timer_level_1_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
