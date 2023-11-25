@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://58wicuucy5h"]
+
+[ext_resource type="PackedScene" uid="uid://0ii8u4p7i7fv" path="res://weapons/ranged_weapon.tscn" id="1_pndyf"]
+[ext_resource type="Script" path="res://weapons/gun.gd" id="2_b2csm"]
+[ext_resource type="Texture2D" uid="uid://cxlybkqt0efg6" path="res://art/weapons/pistola.png" id="3_ogdbq"]
+[ext_resource type="AudioStream" uid="uid://b5iqgbdnq1cs5" path="res://audio/gun_shot.mp3" id="3_wx2kn"]
+
+[node name="Gun" instance=ExtResource("1_pndyf")]
+show_behind_parent = true
+script = ExtResource("2_b2csm")
+
+[node name="Sprite2D" parent="Node2D" index="0"]
+position = Vector2(9.228, -0.842154)
+rotation = 0.00872665
+scale = Vector2(0.581103, 0.501972)
+texture = ExtResource("3_ogdbq")
+
+[node name="GunShot" type="AudioStreamPlayer2D" parent="." index="2"]
+stream = ExtResource("3_wx2kn")
+
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_timer_timeout" flags=18]

@@ -1,6 +1,6 @@
 extends Character
 
-enum {UP, DOWN}
+enum {FIRST, SECOND, THIRD}
 
 const MAX_HITPOINTS = 100
 
@@ -9,6 +9,8 @@ const MAX_HITPOINTS = 100
 @onready var current_weapon: Node2D = weapons.get_child(0)
 @onready var healthbar: ProgressBar = $ProgressBar
 @onready var collectedCoins = get_parent().get_node("CoinsCounterUi").get_child(0)
+
+@export var weapons_inventory: Inventory
 
 
 var damage_modifier: int = 2
@@ -60,27 +62,19 @@ func get_input() -> void:
 	if Input.is_action_pressed("ui_right"):
 		mov_direction += Vector2.RIGHT
 	
-	if not current_weapon.is_busy:
-		if Input.is_action_just_released("ui_previous_weapon"):
-			_switch_weapons(UP)
-		elif Input.is_action_just_released("ui_next_weapon"):
-			_switch_weapons(DOWN)
+#	if not current_weapon.is_busy:
+	if Input.is_action_pressed("ui_first_weapon"):
+		_switch_weapons(FIRST)
+	elif Input.is_action_pressed("ui_second_weapon"):
+		_switch_weapons(SECOND)
+	elif Input.is_action_pressed("ui_third_weapon"):
+		_switch_weapons(THIRD)
 	current_weapon._get_input()
 
 
-func _switch_weapons(direction: int) -> void:
-	var index: int = current_weapon.get_index()
-	if direction == UP:
-		index -= 1
-		if index < 0:
-			index = weapons.get_child_count() - 1
-	else:
-		index += 1
-		if index > weapons.get_child_count() - 1:
-			index = 0
-	
+func _switch_weapons(weapon_position: int) -> void:
 	current_weapon.hide()
-	current_weapon = weapons.get_child(index)
+	current_weapon = weapons.get_child(weapon_position)
 	current_weapon.show()
 
 
