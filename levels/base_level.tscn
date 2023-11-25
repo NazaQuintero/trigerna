@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c5pdqw1gfk41k" path="res://characters/player/player.tscn" id="4_gj6uk"]
 [ext_resource type="PackedScene" uid="uid://51hd8ou3eo0v" path="res://inventory/inventory_ui.tscn" id="4_t4hll"]
 [ext_resource type="AudioStream" uid="uid://tu1hl0lde1st" path="res://audio/ready-fight.mp3" id="5_lxvgv"]
-[ext_resource type="PackedScene" uid="uid://ceq7rl2exrexf" path="res://level_display.tscn" id="7_xt33f"]
+[ext_resource type="PackedScene" path="res://level_display.tscn" id="7_xt33f"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_q0q16"]
 vertices = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)

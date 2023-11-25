@@ -1,9 +1,64 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6l1gp3n3fgkm"]
+[gd_scene load_steps=7 format=3 uid="uid://blgr1aylv5vkg"]
 
-[ext_resource type="PackedScene" uid="uid://6fcg3s3lipa0" path="res://menu.tscn" id="1_r8b60"]
+[ext_resource type="PackedScene" uid="uid://6fcg3s3lipa0" path="res://menu.tscn" id="1_2f155"]
 [ext_resource type="Script" path="res://start_menu.gd" id="2_b74fy"]
 
-[node name="StartMenu" type="Node2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7lue5"]
+bg_color = Color(0.00392157, 0, 0, 0.647059)
+shadow_color = Color(0, 0, 0, 1)
 
-[node name="MenuView" parent="." instance=ExtResource("1_r8b60")]
+[sub_resource type="FontFile" id="FontFile_50xp0"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/37/0 = Vector2(0, 0)
+cache/0/37/0/ascent = 0.0
+cache/0/37/0/descent = 0.0
+cache/0/37/0/underline_position = 0.0
+cache/0/37/0/underline_thickness = 0.0
+cache/0/37/0/scale = 1.0
+cache/0/37/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/37/0/kerning_overrides/37/0 = Vector2(0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_h0r8d"]
+base_font = SubResource("FontFile_50xp0")
+
+[sub_resource type="LabelSettings" id="LabelSettings_dlpvk"]
+line_spacing = 8.0
+font = SubResource("FontVariation_h0r8d")
+font_size = 37
+outline_size = 3
+outline_color = Color(1, 0.921569, 1, 1)
+shadow_color = Color(0.901961, 0.901961, 0.901961, 0.533333)
+
+[node name="start_menu" type="Node2D"]
+
+[node name="GameOverScreen" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="GameOverScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7lue5")
+
+[node name="MarginContainer" type="MarginContainer" parent="GameOverScreen/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="Label" type="Label" parent="GameOverScreen/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "GOD TRIGGER"
+label_settings = SubResource("LabelSettings_dlpvk")
+horizontal_alignment = 1
+
+[node name="Menu" parent="GameOverScreen/PanelContainer/MarginContainer" instance=ExtResource("1_2f155")]
+layout_mode = 2
+size_flags_vertical = 8
 script = ExtResource("2_b74fy")

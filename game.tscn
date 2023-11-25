@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dpokl7aedr8ng"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_bjdy6"]
-[ext_resource type="PackedScene" uid="uid://c6l1gp3n3fgkm" path="res://levels/start_menu.tscn" id="2_shckk"]
+[ext_resource type="PackedScene" uid="uid://blgr1aylv5vkg" path="res://levels/start_menu.tscn" id="2_shckk"]
 
 [node name="Game" type="Node2D"]
 texture_filter = 1
@@ -9,7 +9,7 @@ script = ExtResource("1_bjdy6")
 
 [node name="SelectedScene" type="Node2D" parent="."]
 
-[node name="StartMenu" parent="SelectedScene" instance=ExtResource("2_shckk")]
+[node name="start_menu" parent="SelectedScene" instance=ExtResource("2_shckk")]
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
