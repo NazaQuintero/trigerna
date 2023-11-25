@@ -1,28 +1,14 @@
 extends Node2D
 
-var enemy_list = [
-	preload("res://characters/enemy/flyingEnemy/flying_enemy.tscn"),
-	preload("res://characters/enemy/Goblin/goblin.tscn")
-]
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+
+@onready var selected_scene = $SelectedScene
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func change_level(level_scene: String) -> void:
+	selected_scene.get_child(0).queue_free()
+	var level_instance = load(level_scene).instantiate()
+	selected_scene.add_child(level_instance)
 
-func get_random_position() -> Vector2:
-	return Vector2(randi_range(-160, 670), randi_range(-90, 390))
-	
-func is_in_visible_square_box(position: Vector2) -> bool:
-	return position.x < 640 and position.x > -80 or position.y < 360 and position.y > -45
 
-func _on_timer_timeout():
-	var enemy_position = get_random_position()
-	while is_in_visible_square_box(enemy_position):
-		enemy_position = get_random_position()
-				
-	Global.instance_node(enemy_list.pick_random(), enemy_position, self)
-	
+func add_node(node_instance) -> void:
+	selected_scene.get_child(0).add_child(node_instance)

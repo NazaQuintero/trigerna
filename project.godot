@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 BgMusic="*res://bg_music.tscn"
 CoinsCounter="*res://globals/CoinsCounter.gd"
 Global="*res://Global.gd"
+Switcher="*res://level_switcher.tscn"
 
 [display]
 
@@ -115,6 +116,7 @@ ui_third_weapon={
 2d_physics/layer_3="Enemy"
 2d_navigation/layer_3="Enemy"
 2d_physics/layer_4="Item"
+2d_physics/layer_5="WorldCollisions"
 
 [navigation]
 

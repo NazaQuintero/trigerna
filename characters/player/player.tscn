@@ -1,6 +1,6 @@
 [gd_scene load_steps=36 format=3 uid="uid://c5pdqw1gfk41k"]
 
-[ext_resource type="PackedScene" uid="uid://bg8rmo2l8j1x8" path="res://character.tscn" id="1_so2ru"]
+[ext_resource type="PackedScene" uid="uid://bg8rmo2l8j1x8" path="res://characters/character.tscn" id="1_4cv1u"]
 [ext_resource type="Script" path="res://characters/player/player.gd" id="1_xmla5"]
 [ext_resource type="Texture2D" uid="uid://cev7fifuuig4s" path="res://art/heroes/knight/knight_idle_anim_f0.png" id="2_kxhg5"]
 [ext_resource type="Resource" uid="uid://duochd5cheeln" path="res://inventory/player_weapons.tres" id="3_0wmln"]
@@ -346,15 +346,16 @@ _data = {
 "run": SubResource("Animation_ukll1")
 }
 
-[node name="Player" instance=ExtResource("1_so2ru")]
+[node name="Player" instance=ExtResource("1_4cv1u")]
 collision_layer = 10
-collision_mask = 5
+collision_mask = 21
 script = ExtResource("1_xmla5")
 weapons_inventory = ExtResource("3_0wmln")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_drogp")
-animation = &"run"
+animation = &"dead"
+frame = 3
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(1, -1)
@@ -403,3 +404,5 @@ stream = ExtResource("23_e0yhi")
 volume_db = -8.276
 pitch_scale = 0.84
 max_distance = 1996.0
+
+[connection signal="animation_finished" from="AnimationPlayer" to="FiniteStateMachine" method="_on_animation_player_animation_finished"]
