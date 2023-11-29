@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://1or4crstoetd"]
+[gd_scene load_steps=29 format=3 uid="uid://1or4crstoetd"]
 
 [ext_resource type="PackedScene" uid="uid://mpb2w21jhky2" path="res://characters/enemy/enemy.tscn" id="1_antpy"]
 [ext_resource type="Texture2D" uid="uid://dyby7grdc6l1n" path="res://art/effects/enemy_afterdead_explosion_anim_f0.png" id="2_1r8ub"]
@@ -20,7 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://02o2m068o3og" path="res://art/enemies/goblin/goblin_run_anim_f5.png" id="17_d28qc"]
 [ext_resource type="Script" path="res://characters/enemy/Goblin/GoblinFSM.gd" id="19_ayd0v"]
 [ext_resource type="AudioStream" uid="uid://bpirgfwde33mv" path="res://audio/punch-hit.mp3" id="20_6fnin"]
-[ext_resource type="AudioStream" uid="uid://bsorm00if5qgr" path="res://audio/goblin-death.mp3" id="21_yl8wn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yrqch"]
 resource_local_to_scene = true
@@ -203,7 +202,7 @@ tracks/4/path = NodePath("PunchSoundHit:playing")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.1),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("20_6fnin")]
@@ -219,6 +218,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [true, false, true, false, true, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_2np6y"]
@@ -354,6 +365,7 @@ frame = 1
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CircleShape2D_yrg6h")
+disabled = true
 
 [node name="FiniteStateMachine" parent="." index="2"]
 script = ExtResource("19_ayd0v")
@@ -369,7 +381,7 @@ wait_time = 0.2
 [node name="AttackTimer" type="Timer" parent="." index="6"]
 one_shot = true
 
-[node name="DeathSound" type="AudioStreamPlayer2D" parent="." index="9"]
-stream = ExtResource("21_yl8wn")
+[node name="DeathSound" parent="." index="9"]
+stream_paused = true
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_timer_timeout"]

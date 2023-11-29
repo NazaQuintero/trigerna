@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://mpb2w21jhky2"]
+[gd_scene load_steps=6 format=3 uid="uid://mpb2w21jhky2"]
 
 [ext_resource type="PackedScene" uid="uid://bg8rmo2l8j1x8" path="res://characters/character.tscn" id="1_2iwri"]
 [ext_resource type="Script" path="res://characters/enemy/enemy.gd" id="2_elxji"]
 [ext_resource type="Script" path="res://characters/enemy/EnemyHitbox.gd" id="3_vs87m"]
 [ext_resource type="AudioStream" uid="uid://bpirgfwde33mv" path="res://audio/punch-hit.mp3" id="4_xjbwi"]
+[ext_resource type="AudioStream" uid="uid://b70ng6jjch654" path="res://audio/bat-death.mp3" id="5_ocu4g"]
 
 [node name="Enemy" instance=ExtResource("1_2iwri")]
 collision_layer = 4
@@ -25,5 +26,8 @@ script = ExtResource("3_vs87m")
 
 [node name="PunchSoundHit" type="AudioStreamPlayer2D" parent="." index="7"]
 stream = ExtResource("4_xjbwi")
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="." index="8"]
+stream = ExtResource("5_ocu4g")
 
 [connection signal="timeout" from="PathTimer" to="." method="_on_path_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ght7fiyhumoj"]
+[gd_scene load_steps=21 format=3 uid="uid://ght7fiyhumoj"]
 
 [ext_resource type="PackedScene" uid="uid://mpb2w21jhky2" path="res://characters/enemy/enemy.tscn" id="1_l5bwi"]
 [ext_resource type="Script" path="res://characters/enemy/flyingEnemy/flying_enemy.gd" id="2_67c2k"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://cv8sya2twvu0m" path="res://art/enemies/flying creature/fly_anim_f2.png" id="8_a64bc"]
 [ext_resource type="Texture2D" uid="uid://diaydr48m8i4h" path="res://art/enemies/flying creature/fly_anim_f3.png" id="9_iwfwg"]
 [ext_resource type="Script" path="res://characters/enemy/flyingEnemy/FlyingEnemyFSM.gd" id="10_d6t4c"]
-[ext_resource type="AudioStream" uid="uid://b70ng6jjch654" path="res://audio/bat-death.mp3" id="11_efss2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jmwc6"]
 animations = [{
@@ -135,7 +134,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("DeadSound:playing")
+tracks/5/path = NodePath("PunchSoundHit:playing")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -147,7 +146,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("PunchSoundHit:playing")
+tracks/6/path = NodePath("DeathSound:playing")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -291,12 +290,14 @@ _data = {
 radius = 4.0
 
 [node name="FlyingEnemy" instance=ExtResource("1_l5bwi")]
+collision_layer = 16
+collision_mask = 0
 script = ExtResource("2_67c2k")
 max_speed = 0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_jmwc6")
-animation = &"dead"
+animation = &"move"
 frame = 3
 
 [node name="CollisionShape2D" parent="." index="1"]
@@ -311,6 +312,9 @@ libraries = {
 "": SubResource("AnimationLibrary_qcu7d")
 }
 
+[node name="NavigationAgent2D" parent="." index="5"]
+navigation_layers = 31
+
 [node name="Hitbox" parent="." index="6"]
 collision_layer = 0
 collision_mask = 2
@@ -318,6 +322,3 @@ collision_mask = 2
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_0ionx")
-
-[node name="DeadSound" type="AudioStreamPlayer2D" parent="." index="8"]
-stream = ExtResource("11_efss2")
