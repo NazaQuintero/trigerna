@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://drb5oc4ckda53"]
+
+[ext_resource type="PackedScene" uid="uid://dbypqa253refi" path="res://levels/base_level.tscn" id="1_wmw66"]
+[ext_resource type="PackedScene" uid="uid://ght7fiyhumoj" path="res://characters/enemy/flyingEnemy/flying_enemy.tscn" id="2_2f8f4"]
+
+[node name="Level3" instance=ExtResource("1_wmw66")]
+enemy_list = [ExtResource("2_2f8f4")]
+level_name = "Level"

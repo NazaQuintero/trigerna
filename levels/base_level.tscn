@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dbypqa253refi"]
+[gd_scene load_steps=16 format=3 uid="uid://dbypqa253refi"]
 
 [ext_resource type="Script" path="res://levels/base_level.gd" id="1_emthn"]
 [ext_resource type="PackedScene" uid="uid://cuoliggrvia3v" path="res://coins_counter_ui.tscn" id="2_e0wpo"]
@@ -18,12 +18,22 @@ vertices = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)])
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_e2qfe"]
+vertices = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)])
+
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_s2e3y"]
 vertices = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_l2m4d"]
+vertices = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_oxppu"]
 vertices = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)])
@@ -97,6 +107,7 @@ texture = ExtResource("3_og4f2")
 3:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 3:1/0/physics_layer_1/angular_velocity = 0.0
 3:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_cm515")
+3:1/0/navigation_layer_1/polygon = SubResource("NavigationPolygon_e2qfe")
 4:1/0 = 0
 4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:1/0/physics_layer_0/angular_velocity = 0.0
@@ -229,6 +240,7 @@ texture = ExtResource("3_og4f2")
 6:4/0/physics_layer_1/angular_velocity = 0.0
 6:4/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:4/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_l2m4d")
+6:4/0/navigation_layer_1/polygon = SubResource("NavigationPolygon_oxppu")
 7:4/0 = 0
 7:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 7:4/0/physics_layer_0/angular_velocity = 0.0

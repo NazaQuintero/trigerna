@@ -2,7 +2,6 @@ extends Level
 
 var enemies  = [
 	preload("res://characters/enemy/flyingEnemy/flying_enemy.tscn"),
-	preload("res://characters/enemy/slime/slime.tscn"),
 ]
 signal level_completed(lvl : String)
 @onready var timer_level = $TimerLevel
