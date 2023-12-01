@@ -6,9 +6,6 @@ var enemies  = [
 	preload("res://characters/enemy/Goblin/goblin.tscn")
 ]
 
-@onready var timer_level = $TimerLevel
-@onready var spawn_timer = $SpawnTimer
-
 
 func _ready():
 	timer_level.start()

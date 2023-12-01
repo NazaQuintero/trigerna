@@ -1,10 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0tqji32jwn4q"]
+[gd_scene load_steps=2 format=3 uid="uid://c0tqji32jwn4q"]
 
 [ext_resource type="PackedScene" uid="uid://dbypqa253refi" path="res://levels/base_level.tscn" id="1_d5m7l"]
-[ext_resource type="Script" path="res://levels/level_1.gd" id="2_btydo"]
 
 [node name="Level1" instance=ExtResource("1_d5m7l")]
-script = ExtResource("2_btydo")
 level_name = "Level 1"
 
 [node name="TileMap" parent="." index="0"]
@@ -13,8 +11,4 @@ layer_0/tile_data = PackedInt32Array(0, 196608, 1, 1, 196608, 1, 2, 196608, 1, 3
 [node name="TimerLevel" parent="." index="1"]
 wait_time = 30.0
 
-[node name="SpawnTimer" type="Timer" parent="." index="2"]
-wait_time = 3.0
-
 [connection signal="timeout" from="TimerLevel" to="." method="_on_timer_level_timeout"]
-[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
