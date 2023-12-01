@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c5pdqw1gfk41k" path="res://characters/player/player.tscn" id="4_gj6uk"]
 [ext_resource type="PackedScene" uid="uid://51hd8ou3eo0v" path="res://inventory/inventory_ui.tscn" id="4_t4hll"]
 [ext_resource type="AudioStream" uid="uid://tu1hl0lde1st" path="res://audio/ready-fight.mp3" id="5_lxvgv"]
-[ext_resource type="PackedScene" uid="uid://ceq7rl2exrexf" path="res://level_display.tscn" id="7_xt33f"]
+[ext_resource type="PackedScene" uid="uid://ceq7rl2exrexf" path="res://levels/level_display.tscn" id="7_xt33f"]
 [ext_resource type="Script" path="res://levels/countdown.gd" id="8_op5mc"]
 [ext_resource type="FontVariation" uid="uid://cks81d4cj4m8e" path="res://fonts/levelsfont.tres" id="8_vuysv"]
 

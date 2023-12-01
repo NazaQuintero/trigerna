@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ceq7rl2exrexf"]
 
 [ext_resource type="FontVariation" uid="uid://cks81d4cj4m8e" path="res://fonts/levelsfont.tres" id="1_kb3o4"]
-[ext_resource type="Script" path="res://levels/level1-label.gd" id="2_d0l53"]
+[ext_resource type="Script" path="res://levels/level_display.gd" id="2_d0l53"]
 [ext_resource type="AudioStream" uid="uid://vvn3c0jx6x4x" path="res://audio/typing-keyboard.mp3" id="3_whafe"]
 
 [node name="Label" type="Label"]
