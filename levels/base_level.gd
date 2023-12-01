@@ -8,9 +8,7 @@ class_name Level
 @onready var spawn_timer = $SpawnTimer
 @onready var intro = $LevelIntro
 var player = preload("res://characters/player/player.tscn")
-var enemy = preload("res://characters/enemy/Goblin/goblin.tscn")
-
-
+	
 func _ready() -> void:
 	await intro.tree_exited 
 	start()
@@ -29,7 +27,8 @@ func _spawn_enemies():
 	while is_in_visible_square_box(enemy_position):
 		enemy_position = get_random_position()
 		
-	Global.instance_node(enemy, enemy_position, self)
+	Global.instance_node(enemy_list.pick_random(), enemy_position, self)
+
 
 func _switch_level(level_name : String) -> void:
 	Switcher._level_handler(level_name)
