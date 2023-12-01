@@ -7,7 +7,7 @@ const MAX_HITPOINTS = 100
 @onready var screen_size: Vector2 = get_viewport_rect().size
 @onready var weapons: Node2D = $Weapons
 @onready var current_weapon: Node2D = weapons.get_child(0)
-@onready var healthbar: ProgressBar = $ProgressBar
+
 @onready var collectedCoins = get_parent().get_node("CoinsCounterUi").get_child(0)
 
 @export var weapons_inventory: Inventory
@@ -18,7 +18,6 @@ var damage_modifier: int = 2
 
 func _ready() -> void:
 	position = screen_size / 2
-	update_health()
 
 
 func _process(_delta: float) -> void:
@@ -30,12 +29,7 @@ func _process(_delta: float) -> void:
 		animated_sprite.flip_h = true
 	
 	current_weapon.move(mouse_direction)
-	update_health()
 	collectedCoins.text = "Coins: " + str(CoinsCounter.coins)
-
-
-func update_health():
-	healthbar.value = self.hitpoints
 
 
 func increase_hitpoints(value: int):
@@ -44,8 +38,6 @@ func increase_hitpoints(value: int):
 		self.hitpoints = MAX_HITPOINTS
 	else: 
 		self.hitpoints = new_hitpoints
-	update_health()
-
 
 func increment_coins(value: int):
 	CoinsCounter.coins += value

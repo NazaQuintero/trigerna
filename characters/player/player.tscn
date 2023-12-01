@@ -380,26 +380,18 @@ libraries = {
 "": SubResource("AnimationLibrary_tl5rj")
 }
 
-[node name="ProgressBar" type="ProgressBar" parent="." index="5"]
-modulate = Color(0.337255, 0.690196, 0, 1)
-offset_left = -7.0
-offset_top = 9.0
-offset_right = 143.0
-offset_bottom = 36.0
-scale = Vector2(0.1, 0.1)
-
-[node name="PlayerHit" type="AudioStreamPlayer2D" parent="." index="6"]
+[node name="PlayerHit" type="AudioStreamPlayer2D" parent="." index="5"]
 stream = ExtResource("21_xeolj")
 pitch_scale = 1.63
 
-[node name="PlayerDeath" type="AudioStreamPlayer2D" parent="." index="7"]
+[node name="PlayerDeath" type="AudioStreamPlayer2D" parent="." index="6"]
 stream = ExtResource("23_iedic")
 
-[node name="PlayerHurt" type="AudioStreamPlayer2D" parent="." index="8"]
+[node name="PlayerHurt" type="AudioStreamPlayer2D" parent="." index="7"]
 stream = ExtResource("22_jgbvx")
 pitch_scale = 1.05
 
-[node name="FootSteps" type="AudioStreamPlayer2D" parent="." index="9"]
+[node name="FootSteps" type="AudioStreamPlayer2D" parent="." index="8"]
 stream = ExtResource("23_e0yhi")
 volume_db = -8.276
 pitch_scale = 0.84

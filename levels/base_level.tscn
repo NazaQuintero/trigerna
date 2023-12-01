@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dbypqa253refi"]
+[gd_scene load_steps=21 format=3 uid="uid://dbypqa253refi"]
 
 [ext_resource type="Script" path="res://levels/base_level.gd" id="1_emthn"]
 [ext_resource type="PackedScene" uid="uid://cuoliggrvia3v" path="res://coins_counter_ui.tscn" id="2_e0wpo"]
@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://ceq7rl2exrexf" path="res://levels/level_display.tscn" id="7_xt33f"]
 [ext_resource type="Script" path="res://levels/countdown.gd" id="8_op5mc"]
 [ext_resource type="FontVariation" uid="uid://cks81d4cj4m8e" path="res://fonts/levelsfont.tres" id="8_vuysv"]
+[ext_resource type="Script" path="res://levels/health_bar.gd" id="10_gkmkb"]
+[ext_resource type="Texture2D" uid="uid://bko81d2tm8cot" path="res://art/heroes/healthbarUnder.png" id="11_bm0hw"]
+[ext_resource type="Texture2D" uid="uid://btfxxfpd42qxs" path="res://art/heroes/healthbarProgress.png" id="12_qtma5"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_q0q16"]
 vertices = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
@@ -385,6 +388,15 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("8_vuysv")
 text = "00:00"
+
+[node name="HealthBar" type="CanvasLayer" parent="."]
+script = ExtResource("10_gkmkb")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HealthBar"]
+offset_right = 64.0
+offset_bottom = 40.0
+texture_under = ExtResource("11_bm0hw")
+texture_progress = ExtResource("12_qtma5")
 
 [connection signal="timeout" from="TimerLevel" to="." method="_on_timer_level_1_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
