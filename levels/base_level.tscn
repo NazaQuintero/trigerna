@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dbypqa253refi"]
+[gd_scene load_steps=29 format=3 uid="uid://dbypqa253refi"]
 
 [ext_resource type="Script" path="res://levels/base_level.gd" id="1_emthn"]
 [ext_resource type="PackedScene" uid="uid://cuoliggrvia3v" path="res://coins_counter_ui.tscn" id="2_e0wpo"]
@@ -6,12 +6,29 @@
 [ext_resource type="PackedScene" uid="uid://c5pdqw1gfk41k" path="res://characters/player/player.tscn" id="4_gj6uk"]
 [ext_resource type="PackedScene" uid="uid://51hd8ou3eo0v" path="res://inventory/inventory_ui.tscn" id="4_t4hll"]
 [ext_resource type="AudioStream" uid="uid://tu1hl0lde1st" path="res://audio/ready-fight.mp3" id="5_lxvgv"]
-[ext_resource type="PackedScene" uid="uid://ceq7rl2exrexf" path="res://level_display.tscn" id="7_xt33f"]
+[ext_resource type="PackedScene" uid="uid://ceq7rl2exrexf" path="res://levels/level_display.tscn" id="7_xt33f"]
+[ext_resource type="Script" path="res://levels/countdown.gd" id="8_op5mc"]
+[ext_resource type="FontVariation" uid="uid://cks81d4cj4m8e" path="res://fonts/levelsfont.tres" id="8_vuysv"]
+[ext_resource type="Script" path="res://levels/health_bar.gd" id="10_gkmkb"]
+[ext_resource type="Texture2D" uid="uid://bko81d2tm8cot" path="res://art/heroes/healthbarUnder.png" id="11_bm0hw"]
+[ext_resource type="Texture2D" uid="uid://btfxxfpd42qxs" path="res://art/heroes/healthbarProgress.png" id="12_qtma5"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_2vsvb"]
+polygon = PackedVector2Array(1.41421, -8, -3.35876, -8, -6.36396, -3.8007, -6.18718, 3.8007, -4.94975, 5.03814, -0.53033, 6.0988, 3.0052, 5.56847, 4.94975, 4.15425, 6.36396, -3.09359)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_nm4s0"]
+polygon = PackedVector2Array(-8, -8, -4.24264, -8, -4.24264, -2.38649, -2.82843, -0.265165, 2.2981, -0.265165, 4.5962, 0.972272, 8, 0.795495, 8, 8, 2.2981, 8, -4.59619, 8, -8, 8)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_q0q16"]
 vertices = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)])
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_2omdy"]
+polygon = PackedVector2Array(-8, 1.67938, -3.71231, 1.14905, 8, 0.795495, 8, 8, 8, 8, -8, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_a11qd"]
+polygon = PackedVector2Array(-8, 8, -8, 8, 8, 8, 8, 0.795495, 4.06586, 0.0883884, -2.65165, -0.0883884, -8, 0.972272)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_cm515"]
 vertices = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
@@ -23,10 +40,19 @@ vertices = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)])
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xtkom"]
+polygon = PackedVector2Array(4.06586, -8, 4.06586, -0.265165, 5.12652, 6.27557, 8, 8, 8, 0.441941, 8, -8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6xl1s"]
+polygon = PackedVector2Array(3.71231, -8, 3.53553, -2.20971, 4.5962, 3.44715, 6.54074, 8, 8, 8, 8, -8)
+
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_s2e3y"]
 vertices = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)])
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_o8e7o"]
+polygon = PackedVector2Array(-4.24264, 0.972272, -8, 0.795495, -8, 8, -4.77297, 8, 8, 8, 8, -8, 3.71231, -8, 3.35876, -1.85616)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_l2m4d"]
 vertices = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
@@ -38,6 +64,9 @@ vertices = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)])
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_avfso"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, -1.14905, 1.23744, -1.32583, -8, -1.32583)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jq0j8"]
 texture = ExtResource("3_og4f2")
 0:0/0 = 0
@@ -46,8 +75,10 @@ texture = ExtResource("3_og4f2")
 0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_1/angular_velocity = 0.0
 1:0/0 = 0
+1:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_2vsvb")
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(4, 4, 1.76777, 5.74524, -1.76777, 6.0988, -4, 4, -4, 4, -4, 4, -5.83363, 2.74004, -5.48008, -5.03814, -3.35876, -8, -0.353553, -8, 2.65165, -8, 4.5962, -4.68458, 5.3033, 0.441941)
 1:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_1/angular_velocity = 0.0
 2:0/0 = 0
@@ -242,6 +273,7 @@ texture = ExtResource("3_og4f2")
 4:4/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 4:4/0/physics_layer_1/angular_velocity = 0.0
 6:4/0 = 0
+6:4/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_avfso")
 6:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:4/0/physics_layer_0/angular_velocity = 0.0
 6:4/0/physics_layer_1/linear_velocity = Vector2(0, 0)
@@ -265,6 +297,7 @@ texture = ExtResource("3_og4f2")
 3:5/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 3:5/0/physics_layer_1/angular_velocity = 0.0
 4:5/0 = 0
+4:5/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_xtkom")
 4:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:5/0/physics_layer_0/angular_velocity = 0.0
 4:5/0/physics_layer_1/linear_velocity = Vector2(0, 0)
@@ -290,8 +323,10 @@ texture = ExtResource("3_og4f2")
 1:6/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 1:6/0/physics_layer_1/angular_velocity = 0.0
 2:6/0 = 0
+2:6/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_2omdy")
 2:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:6/0/physics_layer_0/angular_velocity = 0.0
+2:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, -8, 8, 8, 8, 8, 0)
 2:6/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 2:6/0/physics_layer_1/angular_velocity = 0.0
 3:6/0 = 0
@@ -300,6 +335,7 @@ texture = ExtResource("3_og4f2")
 3:6/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 3:6/0/physics_layer_1/angular_velocity = 0.0
 4:6/0 = 0
+4:6/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_6xl1s")
 4:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:6/0/physics_layer_0/angular_velocity = 0.0
 4:6/0/physics_layer_1/linear_velocity = Vector2(0, 0)
@@ -320,22 +356,26 @@ texture = ExtResource("3_og4f2")
 8:6/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 8:6/0/physics_layer_1/angular_velocity = 0.0
 1:7/0 = 0
+1:7/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_nm4s0")
 1:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:7/0/physics_layer_0/angular_velocity = 0.0
 1:7/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 1:7/0/physics_layer_1/angular_velocity = 0.0
 2:7/0 = 0
+2:7/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_a11qd")
 2:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:7/0/physics_layer_0/angular_velocity = 0.0
 2:7/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 2:7/0/physics_layer_1/angular_velocity = 0.0
 5:7/0 = 0
+5:7/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_o8e7o")
 5:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:7/0/physics_layer_0/angular_velocity = 0.0
 5:7/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 5:7/0/physics_layer_1/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_fsinj"]
+occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 6
 physics_layer_0/collision_mask = 6
 physics_layer_1/collision_layer = 16
@@ -356,6 +396,8 @@ layer_0/tile_data = PackedInt32Array(0, 196608, 1, 1, 196608, 1, 2, 196608, 1, 3
 [node name="TimerLevel" type="Timer" parent="."]
 wait_time = 10.0
 
+[node name="SpawnTimer" type="Timer" parent="."]
+
 [node name="CoinsCounterUi" parent="." instance=ExtResource("2_e0wpo")]
 position = Vector2(417, 6)
 
@@ -370,6 +412,33 @@ offset_bottom = 26.0
 [node name="ReadyFight" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_lxvgv")
 
-[node name="Label" parent="." instance=ExtResource("7_xt33f")]
+[node name="LevelIntro" parent="." instance=ExtResource("7_xt33f")]
+
+[node name="Countdown" type="CanvasLayer" parent="."]
+script = ExtResource("8_op5mc")
+
+[node name="Label" type="Label" parent="Countdown"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("8_vuysv")
+text = "00:00"
+
+[node name="HealthBar" type="CanvasLayer" parent="."]
+script = ExtResource("10_gkmkb")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HealthBar"]
+offset_right = 64.0
+offset_bottom = 40.0
+texture_under = ExtResource("11_bm0hw")
+texture_progress = ExtResource("12_qtma5")
 
 [connection signal="timeout" from="TimerLevel" to="." method="_on_timer_level_1_timeout"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

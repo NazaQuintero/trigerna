@@ -10,4 +10,3 @@ func _ready():
 
 func _on_audio_stream_player_2d_finished():
 	queue_free()
-	get_parent().start_sound()
