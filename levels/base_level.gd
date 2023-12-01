@@ -17,7 +17,7 @@ func _ready() -> void:
 	
 func get_random_position() -> Vector2:
 	return Vector2(randi_range(-160, 670), randi_range(-90, 390))
-	
+
 func is_in_visible_square_box(position: Vector2) -> bool:
 	return position.x < 640 and position.x > -80 or position.y < 360 and position.y > -45
 
