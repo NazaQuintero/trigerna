@@ -62,7 +62,7 @@ position = Vector2(-1, -1)
 frame_progress = 0.82521
 
 [node name="Torch4" parent="." index="14" instance=ExtResource("3_cktuv")]
-position = Vector2(380, 260)
+position = Vector2(379, 263)
 scale = Vector2(0.992187, 0.976563)
 energy = 1.5
 range_z_max = 1031
