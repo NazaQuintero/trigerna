@@ -12,7 +12,7 @@ var instance
 
 func instance_node(node, location, parent):
 	var node_instance = node.instantiate()
-	get_tree().current_swcene.add_node(node_instance)
+	get_tree().current_scene.add_node(node_instance)
 	node_instance.global_position = location
 	node_instance._initialize_values()
 	return node_instance

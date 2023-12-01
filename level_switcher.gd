@@ -12,7 +12,7 @@ func _level_handler(level_name: String) -> void:
 		"Level 1":
 			next_level = "level_2"
 		"Level 2":
-			next_level = "level_1" # falta hacer esta escena player_won
+			next_level = "level_3" # falta hacer esta escena player_won
 		_:
 			return
 	transition.play("fade_in")

@@ -28,10 +28,6 @@ func _spawn_enemies():
 		enemy_position = get_random_position()
 		
 	Global.instance_node(enemy_list.pick_random(), enemy_position, self)
-
-
-func _switch_level(level_name : String) -> void:
-	Switcher._level_handler(level_name)
 	
 func _player_died() -> void:
 	connect("player_died", Callable(self, "_lose"))
@@ -48,3 +44,7 @@ func start() -> void:
 func _on_spawn_timer_timeout():
 	_spawn_enemies()
 
+
+func _on_timer_level_timeout():
+	Switcher._level_handler(level_name)
+	
