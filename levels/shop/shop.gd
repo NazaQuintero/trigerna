@@ -42,3 +42,7 @@ func _on_next_pressed():
 		switchItem(next_position_candidate)
 	else:
 		switchItem(FIRST_POSITION)
+
+
+func _on_continue_pressed():
+	pass # Replace with function body.
