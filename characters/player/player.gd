@@ -29,7 +29,7 @@ func _process(_delta: float) -> void:
 		animated_sprite.flip_h = true
 	
 	current_weapon.move(mouse_direction)
-	collectedCoins.text = "Coins: " + str(CoinsCounter.coins)
+	collectedCoins.text = "Coins: " + str(Global.collected_coins)
 
 
 func increase_hitpoints(value: int):
@@ -40,7 +40,7 @@ func increase_hitpoints(value: int):
 		self.hitpoints = new_hitpoints
 
 func increment_coins(value: int):
-	CoinsCounter.coins += value
+	Global.collected_coins += value
 
 
 func get_input() -> void:

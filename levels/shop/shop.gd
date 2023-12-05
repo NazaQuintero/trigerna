@@ -14,6 +14,7 @@ func set_displayed_values():
 	var scaleX = Global.shop_items[selected]["scaleX"]
 	var scaleY = Global.shop_items[selected]["scaleY"]
 	get_node("Control/ShopItem").change_texture(texture, scaleX, scaleY)
+	get_node("Control/CoinsUI").get_child(0).text = "Coins: " + str(Global.collected_coins)
 
 func _ready():
 	var item_name = Global.shop_items[selected]["name"]

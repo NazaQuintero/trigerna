@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://wpgjcykdyprm"]
+[gd_scene load_steps=7 format=3 uid="uid://wpgjcykdyprm"]
 
 [ext_resource type="Script" path="res://levels/shop/shop.gd" id="1_0i28i"]
 [ext_resource type="PackedScene" uid="uid://dyx17ao4nlaw2" path="res://levels/shop/items/shop_item.tscn" id="2_b3a52"]
+[ext_resource type="PackedScene" uid="uid://cuoliggrvia3v" path="res://coins_counter_ui.tscn" id="3_jf25g"]
 
 [sub_resource type="Animation" id="Animation_02mqg"]
 resource_name = "fade_in"
@@ -148,6 +149,10 @@ offset_top = 40.0
 offset_right = 333.0
 offset_bottom = 71.0
 text = ">"
+
+[node name="CoinsUI" parent="Control" instance=ExtResource("3_jf25g")]
+position = Vector2(369, 9)
+scale = Vector2(1.5, 1.5)
 
 [connection signal="pressed" from="Purchase" to="." method="_on_purchase_pressed"]
 [connection signal="pressed" from="Control/Prev" to="." method="_on_prev_pressed"]
