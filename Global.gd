@@ -11,19 +11,25 @@ var shop_items = {
 		"name": "Potion",
 		"desc": "An item useful to recover 50 points of life",
 		"cost": 200,
-		"texture": load("res://art/props_itens/potion_red.png")
+		"texture": "res://art/props_itens/potion_red.png",
+		"scaleX": 4,
+		"scaleY": 4
 	},
 	1: {
 		"name": "Crossbow",
 		"desc": "A ranged weapon that fires arrows",
 		"cost": 500,
-		"texture": load("res://art/weapons/crossbow.png")
+		"texture": "res://art/weapons/crossbow.png",
+		"scaleX": 0.05,
+		"scaleY": 0.05
 	},
 	2: {
 		"name": "Gun",
 		"desc": "A ranged weapon that fires bullets",
 		"cost": 1000,
-		"texture": load("res://art/weapons/pistola.png")
+		"texture": "res://art/weapons/pistola.png",
+		"scaleX": 4,
+		"scaleY": 4
 	}
 }
 
