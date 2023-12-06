@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://wpgjcykdyprm"]
+[gd_scene load_steps=8 format=3 uid="uid://wpgjcykdyprm"]
 
 [ext_resource type="Script" path="res://levels/shop/shop.gd" id="1_0i28i"]
 [ext_resource type="PackedScene" uid="uid://j3xkeq7csnov" path="res://shop_control.tscn" id="3_0u4q0"]
 [ext_resource type="PackedScene" uid="uid://cuoliggrvia3v" path="res://coins_counter_ui.tscn" id="3_jf25g"]
+[ext_resource type="PackedScene" uid="uid://51hd8ou3eo0v" path="res://inventory/inventory_ui.tscn" id="4_dfe7e"]
 
 [sub_resource type="Animation" id="Animation_02mqg"]
 resource_name = "fade_in"
@@ -100,5 +101,11 @@ theme_override_font_sizes/font_size = 12
 text = "Continue"
 
 [node name="ShopControl" parent="." instance=ExtResource("3_0u4q0")]
+
+[node name="Inventory_UI" parent="." instance=ExtResource("4_dfe7e")]
+offset_left = 260.0
+offset_top = 75.0
+offset_right = -49.0
+offset_bottom = -150.0
 
 [connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]

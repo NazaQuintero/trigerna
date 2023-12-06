@@ -43,6 +43,7 @@ columns = 4
 
 [node name="inventory_UI_slot1" parent="NinePatchRect/GridContainer" instance=ExtResource("3_upsmw")]
 layout_mode = 2
+selected = true
 
 [node name="inventory_UI_slot2" parent="NinePatchRect/GridContainer" instance=ExtResource("3_upsmw")]
 layout_mode = 2
