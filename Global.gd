@@ -7,6 +7,8 @@ const MASK_LAYER_ITEM: int = 4
 
 var collected_coins = 0
 
+var shop_item_selected = 0
+
 var shop_items = {
 	0: {
 		"name": "Potion",

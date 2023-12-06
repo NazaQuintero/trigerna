@@ -5,7 +5,7 @@ enum {FIRST, SECOND, THIRD}
 const MAX_HITPOINTS = 100
 
 @onready var screen_size: Vector2 = get_viewport_rect().size
-@onready var weapons: Node2D = $Weapons
+@onready var weapons: Node2D = $EquippedWeapons
 @onready var current_weapon: Node2D = weapons.get_child(0)
 
 @onready var collectedCoins = get_parent().get_node("CoinsCounterUi").get_child(0)
