@@ -1,99 +1,49 @@
-[gd_scene load_steps=5 format=3 uid="uid://51hd8ou3eo0v"]
+[gd_scene load_steps=3 format=3 uid="uid://51hd8ou3eo0v"]
 
 [ext_resource type="Script" path="res://inventory/inventory_ui.gd" id="1_i4xid"]
-[ext_resource type="Texture2D" uid="uid://baq5qepy8ql7o" path="res://art/ui/inventory_slot.png" id="2_isek1"]
 [ext_resource type="PackedScene" uid="uid://fb0sluc1rwf" path="res://inventory/inventory_ui_slot.tscn" id="3_upsmw"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_cstq4"]
-font_size = 14
-font_color = Color(0.00784314, 0.00784314, 0.00784314, 1)
 
 [node name="Inventory_UI" type="Control"]
 custom_minimum_size = Vector2(85, 21)
+layout_direction = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -395.0
+offset_right = -384.0
 offset_bottom = -249.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_i4xid")
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
-layout_mode = 0
-offset_right = 85.0
-offset_bottom = 21.0
-texture = ExtResource("2_isek1")
-
-[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+[node name="GridContainer" type="GridContainer" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(84, 20)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -39.0
-offset_top = -9.0
-offset_right = 39.0
-offset_bottom = 9.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
 columns = 4
+script = ExtResource("1_i4xid")
 
-[node name="inventory_UI_slot1" parent="NinePatchRect/GridContainer" instance=ExtResource("3_upsmw")]
+[node name="inventory_UI_slot1" parent="GridContainer" instance=ExtResource("3_upsmw")]
+layout_direction = 1
 layout_mode = 2
 selected = true
 
-[node name="inventory_UI_slot2" parent="NinePatchRect/GridContainer" instance=ExtResource("3_upsmw")]
+[node name="inventory_UI_slot2" parent="GridContainer" instance=ExtResource("3_upsmw")]
+layout_direction = 1
 layout_mode = 2
 
-[node name="inventory_UI_slot3" parent="NinePatchRect/GridContainer" instance=ExtResource("3_upsmw")]
+[node name="inventory_UI_slot3" parent="GridContainer" instance=ExtResource("3_upsmw")]
+layout_direction = 1
 layout_mode = 2
 
-[node name="inventory_UI_slot4" parent="NinePatchRect/GridContainer" instance=ExtResource("3_upsmw")]
+[node name="inventory_UI_slot4" parent="GridContainer" instance=ExtResource("3_upsmw")]
+layout_direction = 1
 layout_mode = 2
-
-[node name="1" type="Label" parent="."]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 20.0
-offset_right = 22.0
-offset_bottom = 43.0
-scale = Vector2(0.3, 0.3)
-text = "1"
-label_settings = SubResource("LabelSettings_cstq4")
-horizontal_alignment = 1
-
-[node name="2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 30.0
-offset_top = 20.0
-offset_right = 42.0
-offset_bottom = 43.0
-scale = Vector2(0.3, 0.3)
-text = "2"
-label_settings = SubResource("LabelSettings_cstq4")
-horizontal_alignment = 1
-
-[node name="3" type="Label" parent="."]
-layout_mode = 0
-offset_left = 50.0
-offset_top = 20.0
-offset_right = 62.0
-offset_bottom = 43.0
-scale = Vector2(0.3, 0.3)
-text = "3"
-label_settings = SubResource("LabelSettings_cstq4")
-horizontal_alignment = 1
-
-[node name="4" type="Label" parent="."]
-layout_mode = 0
-offset_left = 70.0
-offset_top = 20.0
-offset_right = 82.0
-offset_bottom = 43.0
-scale = Vector2(0.3, 0.3)
-text = "4"
-label_settings = SubResource("LabelSettings_cstq4")
-horizontal_alignment = 1

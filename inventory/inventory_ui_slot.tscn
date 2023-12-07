@@ -13,30 +13,42 @@ border_width_bottom = 1
 border_color = Color(0.407843, 0.407843, 0.027451, 1)
 
 [node name="inventory_UI_slot" type="Panel"]
+clip_contents = true
 custom_minimum_size = Vector2(16, 16)
-offset_right = 16.0
-offset_bottom = 16.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_sa2vv")
+metadata/_edit_use_anchors_ = true
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 0
-offset_left = -2.0
-offset_top = -2.0
-offset_right = 18.0
-offset_bottom = 18.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_iuldm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -9.53674e-07)
-scale = Vector2(0.0559441, 0.0559441)
+position = Vector2(6.29371, -9.53674e-07)
+scale = Vector2(0.937063, 0.940559)
 texture = ExtResource("1_vubpx")
 centered = false
+offset = Vector2(100, 0)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(16, 16)
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="CenterContainer"]
 layout_mode = 2
