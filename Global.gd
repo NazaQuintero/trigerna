@@ -36,26 +36,63 @@ var shop_items = {
 	}
 }
 
+var level_equipped_weapons_scale_cfg = {
+	"Fist": {
+		"scale": Vector2(1,1),
+	},
+	"Crossbow" : {
+		"scale": Vector2(0.05, 0.005)
+	},
+	"Gun" : {
+		"scale": Vector2(1,1)
+	}
+}
+
+var shop_equipped_weapons_scale_cfg = {
+	"Fist": {
+		"scale": Vector2(3,3),
+	},
+	"Crossbow" : {
+		"scale": Vector2(0.030, 0.030)
+	},
+	"Gun" : {
+		"scale": Vector2(3,3)
+	}
+}
+
 var shop_equipped_weapons = {
 	1: {
 		"name": "Fist",
 		"texture": "res://art/weapons/fist.png",
-		"scaleX": 3,
-		"scaleY": 3
+		"scale" : shop_equipped_weapons_scale_cfg["Fist"].scale
 	},
 	2: {
 		"name": "Crossbow",
 		"texture": "res://art/weapons/crossbow.png",
-		"scaleX": 0.030,
-		"scaleY": 0.030
+		"scale": shop_equipped_weapons_scale_cfg["Crossbow"].scale
 	},
 	3: {
 		"name": "Gun",
-		"desc": "A ranged weapon that fires bullets",
-		"cost": 1000,
 		"texture": "res://art/weapons/pistola.png",
-		"scaleX": 3,
-		"scaleY": 3
+		"scale": shop_equipped_weapons_scale_cfg["Gun"].scale
+	}
+}
+
+var level_equipped_weapons = {
+	1: {
+		"name": "Fist",
+		"texture": "res://art/weapons/fist.png",
+		"scale" : level_equipped_weapons_scale_cfg["Fist"].scale
+	},
+	2: {
+		"name": "Crossbow",
+		"texture": "res://art/weapons/crossbow.png",
+		"scale": level_equipped_weapons_scale_cfg["Crossbow"].scale
+	},
+	3: {
+		"name": "Gun",
+		"texture": "res://art/weapons/pistola.png",
+		"scale": level_equipped_weapons_scale_cfg["Gun"].scale
 	}
 }
 

@@ -12,6 +12,8 @@ var player = preload("res://characters/player/player.tscn")
 func _ready() -> void:
 	await intro.tree_exited 
 	start()
+	$Inventory_UI.set_weapons(Array(Global.level_equipped_weapons.values()))
+	
 	
 func get_random_position() -> Vector2:
 	return Vector2(randi_range(-160, 670), randi_range(-90, 390))

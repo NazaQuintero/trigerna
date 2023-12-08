@@ -16,5 +16,11 @@ func update(item):
 	else:
 		item_visual.visible = true
 		item_visual.texture = load(item.texture)
-		item_visual.scale.x = item.scaleX
-		item_visual.scale.y = item.scaleY
+		item_visual.scale.x = item.scale.x
+		item_visual.scale.y = item.scale.y
+
+
+func set_selected(value: bool):
+	selected = value
+	selected_container.visible = selected
+	

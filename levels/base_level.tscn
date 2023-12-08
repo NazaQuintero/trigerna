@@ -404,9 +404,9 @@ position = Vector2(417, 6)
 [node name="Player" parent="." instance=ExtResource("4_gj6uk")]
 
 [node name="Inventory_UI" parent="." instance=ExtResource("4_t4hll")]
-offset_left = 193.0
+offset_left = 188.0
 offset_top = 5.0
-offset_right = 278.0
+offset_right = 289.0
 offset_bottom = 26.0
 
 [node name="ReadyFight" type="AudioStreamPlayer2D" parent="."]
