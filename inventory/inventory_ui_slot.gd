@@ -10,9 +10,11 @@ func _ready():
 	if (not selected):
 		selected_container.visible = false
 
-func update(item: InventoryItem):
+func update(item):
 	if !item:
 		item_visual.visible = false
 	else:
 		item_visual.visible = true
-		item_visual.texture = item.texture
+		item_visual.texture = load(item.texture)
+		item_visual.scale.x = item.scaleX
+		item_visual.scale.y = item.scaleY

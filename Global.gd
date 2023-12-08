@@ -36,6 +36,29 @@ var shop_items = {
 	}
 }
 
+var shop_equipped_weapons = {
+	1: {
+		"name": "Fist",
+		"texture": "res://art/weapons/fist.png",
+		"scaleX": 3,
+		"scaleY": 3
+	},
+	2: {
+		"name": "Crossbow",
+		"texture": "res://art/weapons/crossbow.png",
+		"scaleX": 0.030,
+		"scaleY": 0.030
+	},
+	3: {
+		"name": "Gun",
+		"desc": "A ranged weapon that fires bullets",
+		"cost": 1000,
+		"texture": "res://art/weapons/pistola.png",
+		"scaleX": 3,
+		"scaleY": 3
+	}
+}
+
 
 var instance
 

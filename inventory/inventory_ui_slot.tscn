@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://fb0sluc1rwf"]
+[gd_scene load_steps=3 format=3 uid="uid://fb0sluc1rwf"]
 
 [ext_resource type="Script" path="res://inventory/inventory_ui_slot.gd" id="1_sa2vv"]
-[ext_resource type="Texture2D" uid="uid://baq5qepy8ql7o" path="res://art/ui/inventory_slot.png" id="1_vubpx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iuldm"]
 bg_color = Color(0.537255, 0.537255, 0.0470588, 0.568627)
@@ -15,9 +14,9 @@ border_color = Color(0.407843, 0.407843, 0.027451, 1)
 [node name="inventory_UI_slot" type="Panel"]
 clip_contents = true
 custom_minimum_size = Vector2(16, 16)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_right = 1.00208
+anchor_bottom = 1.27407
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -34,13 +33,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_iuldm")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(6.29371, -9.53674e-07)
-scale = Vector2(0.937063, 0.940559)
-texture = ExtResource("1_vubpx")
-centered = false
-offset = Vector2(100, 0)
-
 [node name="CenterContainer" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 1
@@ -50,7 +42,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="CenterContainer"]
+[node name="Panel" type="AspectRatioContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
 [node name="weapon_display" type="Sprite2D" parent="CenterContainer/Panel"]
+centered = false

@@ -103,9 +103,9 @@ text = "Continue"
 [node name="ShopControl" parent="." instance=ExtResource("3_0u4q0")]
 
 [node name="Inventory_UI" parent="." instance=ExtResource("4_dfe7e")]
-offset_left = 261.0
-offset_top = 90.0
-offset_right = -39.0
-offset_bottom = -139.0
+offset_left = 240.0
+offset_top = 54.0
+offset_right = -30.0
+offset_bottom = -166.0
 
 [connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
