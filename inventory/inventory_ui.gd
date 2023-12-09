@@ -10,6 +10,7 @@ func unselect_all():
 		
 func select_slot(pos: int):
 	unselect_all()
+	Global.current_weapon = pos + 1
 	slots[pos].set_selected(true)
 
 func _input(event):
