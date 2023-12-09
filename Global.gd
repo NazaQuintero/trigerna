@@ -50,7 +50,7 @@ var level_equipped_weapons_scale_cfg = {
 
 var shop_equipped_weapons_scale_cfg = {
 	"Fist": {
-		"scale": Vector2(3,3),
+		"scale": Vector2(0.3, 0.3),
 	},
 	"Crossbow" : {
 		"scale": Vector2(0.030, 0.030)
@@ -63,7 +63,7 @@ var shop_equipped_weapons_scale_cfg = {
 var shop_equipped_weapons = {
 	1: {
 		"name": "Fist",
-		"texture": "res://art/weapons/fist.png",
+		"texture": "res://art/weapons/glove_box.png",
 		"scale" : shop_equipped_weapons_scale_cfg["Fist"].scale
 	},
 	2: {
@@ -81,7 +81,7 @@ var shop_equipped_weapons = {
 var level_equipped_weapons = {
 	1: {
 		"name": "Fist",
-		"texture": "res://art/weapons/fist.png",
+		"texture": "res://art/weapons/potion.png",
 		"scale" : level_equipped_weapons_scale_cfg["Fist"].scale
 	},
 	2: {
