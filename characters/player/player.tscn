@@ -1,9 +1,8 @@
-[gd_scene load_steps=36 format=3 uid="uid://c5pdqw1gfk41k"]
+[gd_scene load_steps=35 format=3 uid="uid://c5pdqw1gfk41k"]
 
 [ext_resource type="PackedScene" uid="uid://bg8rmo2l8j1x8" path="res://characters/character.tscn" id="1_4cv1u"]
 [ext_resource type="Script" path="res://characters/player/player.gd" id="1_xmla5"]
 [ext_resource type="Texture2D" uid="uid://cev7fifuuig4s" path="res://art/heroes/knight/knight_idle_anim_f0.png" id="2_kxhg5"]
-[ext_resource type="Resource" uid="uid://duochd5cheeln" path="res://inventory/player_weapons.tres" id="3_0wmln"]
 [ext_resource type="Texture2D" uid="uid://3ferhk6kg21u" path="res://art/heroes/knight/knight_idle_anim_f1.png" id="3_2rqlv"]
 [ext_resource type="Texture2D" uid="uid://dyby7grdc6l1n" path="res://art/effects/enemy_afterdead_explosion_anim_f0.png" id="3_hbvqq"]
 [ext_resource type="Texture2D" uid="uid://ev5y25sw27q7" path="res://art/effects/enemy_afterdead_explosion_anim_f1.png" id="4_bk2on"]
@@ -350,7 +349,7 @@ _data = {
 collision_layer = 10
 collision_mask = 21
 script = ExtResource("1_xmla5")
-weapons_inventory = ExtResource("3_0wmln")
+equipped_weapons = []
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_drogp")

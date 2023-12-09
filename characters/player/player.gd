@@ -10,7 +10,7 @@ const MAX_HITPOINTS = 100
 
 @onready var collectedCoins = get_parent().get_node("CoinsCounterUi").get_child(0)
 
-@export var weapons_inventory: Inventory
+@export var equipped_weapons = []
 
 
 var damage_modifier: int = 2

@@ -1,5 +1,7 @@
 extends Control
 
+var on_purchase_pressed: Callable
+
 var last_item_position = Global.shop_items.size() - 1
 const FIRST_POSITION = 0
 
@@ -23,7 +25,7 @@ func switchItem(item_position):
 	set_displayed_values()
 
 func _on_purchase_pressed():
-	print(Global.shop_items[Global.shop_item_selected])
+	on_purchase_pressed.call()
 
 
 func _on_prev_pressed():
@@ -40,3 +42,6 @@ func _on_next_pressed():
 		switchItem(next_position_candidate)
 	else:
 		switchItem(FIRST_POSITION)
+		
+func receive_on_purchase_cb(cb: Callable):
+	on_purchase_pressed = cb
