@@ -32,6 +32,5 @@ func set_weapons(new_weapons):
 	update_slots()
 	
 func update_slots():
-	print('equipped_weapons: ', weapons)
 	for i in range(min(weapons.size(), slots.size())):
 		slots[i].update(weapons[i])

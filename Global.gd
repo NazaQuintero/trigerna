@@ -38,13 +38,13 @@ var shop_items = {
 
 var level_equipped_weapons_scale_cfg = {
 	"Fist": {
-		"scale": Vector2(0.2, 0.2),
+		"scale": Vector2(0.25, 0.25),
 	},
 	"Crossbow" : {
-		"scale": Vector2(0.05, 0.005)
+		"scale": Vector2(0.02, 0.02)
 	},
 	"Gun" : {
-		"scale": Vector2(0.5, 0.5)
+		"scale": Vector2(2.3, 2.3)
 	}
 }
 
@@ -56,7 +56,7 @@ var shop_equipped_weapons_scale_cfg = {
 		"scale": Vector2(0.030, 0.030)
 	},
 	"Gun" : {
-		"scale": Vector2(3,3)
+		"scale": Vector2(3, 3)
 	}
 }
 

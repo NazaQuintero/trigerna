@@ -43,6 +43,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Panel" type="AspectRatioContainer" parent="CenterContainer"]
+clip_contents = true
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 
