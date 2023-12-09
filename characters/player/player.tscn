@@ -349,7 +349,6 @@ _data = {
 collision_layer = 10
 collision_mask = 21
 script = ExtResource("1_xmla5")
-equipped_weapons = []
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_drogp")

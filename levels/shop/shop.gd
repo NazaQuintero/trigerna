@@ -18,8 +18,10 @@ var on_purchase = func():
 		$CoinsUI.get_child(0).text = "Coins: " + str(Global.collected_coins)
 		var name = selected_shop_item.name
 		var texture = Global.shop_weapons[name].texture
-		var scale = Global.shop_weapons[name].scale
-		Global.shop_equipped_weapons.merge({ Global.current_weapon: { "name": name, "texture": texture, "scale": scale }})
-		print("Equipped weapons: ", Global.shop_equipped_weapons)
+		var shop_scale = Global.shop_weapons[name].scale
+		var level_scale = Global.level_weapons[name].scale
+		Global.shop_equipped_weapons.merge({ Global.current_weapon: { "name": name, "texture": texture, "scale": shop_scale }})
+		Global.level_equipped_weapons.merge({ Global.current_weapon: { "name": name, "texture": texture, "scale": level_scale }})
+#		print("Equipped weapons: ", Global.shop_equipped_weapons)
 		$Inventory_UI.set_weapons(Array(Global.shop_equipped_weapons.values()))
 	

@@ -13,7 +13,7 @@ var current_weapon = 0
 
 var shop_items = {
 	0: {
-		"name": "Potion",
+		"name": "potion",
 		"desc": "An item useful to recover 50 points of life",
 		"cost": 200,
 		"texture": "res://art/props_itens/potion_red.png",
@@ -21,7 +21,7 @@ var shop_items = {
 		"scaleY": 4
 	},
 	1: {
-		"name": "Crossbow",
+		"name": "crossbow",
 		"desc": "A ranged weapon that fires arrows",
 		"cost": 500,
 		"texture": "res://art/weapons/crossbow.png",
@@ -29,7 +29,7 @@ var shop_items = {
 		"scaleY": 0.05
 	},
 	2: {
-		"name": "Gun",
+		"name": "gun",
 		"desc": "A ranged weapon that fires bullets",
 		"cost": 1000,
 		"texture": "res://art/weapons/pistola.png",
@@ -39,67 +39,72 @@ var shop_items = {
 }
 
 var level_equipped_weapons_scale_cfg = {
-	"Fist": {
+	"fist": {
 		"scale": Vector2(0.25, 0.25),
 	},
-	"Crossbow" : {
+	"crossbow" : {
 		"scale": Vector2(0.02, 0.02)
 	},
-	"Gun" : {
+	"gun" : {
 		"scale": Vector2(2.3, 2.3)
 	}
 }
 
 var shop_equipped_weapons_scale_cfg = {
-	"Fist": {
+	"fist": {
 		"scale": Vector2(0.3, 0.3),
 	},
-	"Crossbow" : {
+	"crossbow" : {
 		"scale": Vector2(0.030, 0.030)
 	},
-	"Gun" : {
+	"gun" : {
 		"scale": Vector2(3, 3)
 	}
 }
 
 var shop_weapons = {
-	"Fist": {
+	"fist": {
 		"texture": "res://art/weapons/glove_box.png",
-		"scale" : shop_equipped_weapons_scale_cfg["Fist"].scale
+		"scale" : shop_equipped_weapons_scale_cfg["fist"].scale
 	},
-	"Crossbow": {
+	"crossbow": {
 		"texture": "res://art/weapons/crossbow.png",
-		"scale": shop_equipped_weapons_scale_cfg["Crossbow"].scale
+		"scale": shop_equipped_weapons_scale_cfg["crossbow"].scale
 	},
-	"Gun": {
+	"gun": {
 		"texture": "res://art/weapons/pistola.png",
-		"scale": shop_equipped_weapons_scale_cfg["Gun"].scale
+		"scale": shop_equipped_weapons_scale_cfg["gun"].scale
+	}
+}
+
+var level_weapons = {
+	"fist": {
+		"texture": "res://art/weapons/glove_box.png",
+		"scale" : level_equipped_weapons_scale_cfg["fist"].scale
+	},
+	"crossbow": {
+		"texture": "res://art/weapons/crossbow.png",
+		"scale": level_equipped_weapons_scale_cfg["crossbow"].scale
+	},
+	"gun": {
+		"texture": "res://art/weapons/pistola.png",
+		"scale": level_equipped_weapons_scale_cfg["gun"].scale
 	}
 }
 
 var shop_equipped_weapons = {
 	1: {
-		"name": "Fist",
+		"name": "fist",
 		"texture": "res://art/weapons/glove_box.png",
-		"scale" : shop_equipped_weapons_scale_cfg["Fist"].scale
+		"scale" : shop_equipped_weapons_scale_cfg["fist"].scale
 	},
 }
 
 var level_equipped_weapons = {
 	1: {
-		"name": "Fist",
+		"name": "fist",
 		"texture": "res://art/weapons/glove_box.png",
-		"scale" : level_equipped_weapons_scale_cfg["Fist"].scale
-	},
-	2: {
-		"name": "Crossbow",
-		"texture": "res://art/weapons/crossbow.png",
-		"scale": level_equipped_weapons_scale_cfg["Crossbow"].scale
-	},
-	3: {
-		"name": "Gun",
-		"texture": "res://art/weapons/pistola.png",
-		"scale": level_equipped_weapons_scale_cfg["Gun"].scale
+		"scale" : level_equipped_weapons_scale_cfg["fist"].scale
 	}
 }
 
