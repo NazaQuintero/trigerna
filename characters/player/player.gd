@@ -11,9 +11,9 @@ const MAX_HITPOINTS = 100
 @onready var collectedCoins = get_parent().get_node("CoinsCounterUi").get_child(0)
 
 var weapons_scenes = {
-	"fist" : preload("res://weapons/fist.tscn"),
-	"crossbow": preload("res://weapons/crossbow.tscn"),
-	"gun": preload("res://weapons/gun.tscn")
+	"fist" : load("res://weapons/fist.tscn"),
+	"crossbow": load("res://weapons/crossbow.tscn"),
+	"gun": load("res://weapons/gun.tscn")
 }
 
 var damage_modifier: int = 2
@@ -23,8 +23,9 @@ func _ready() -> void:
 	position = screen_size / 2
 	for weapon in Global.level_equipped_weapons.values():
 		print(weapon)
-		var new_weapon = weapons_scenes[weapon.name].instantiate
+		var new_weapon = weapons_scenes[weapon.name].instantiate()
 		weapons.add_child(new_weapon)
+	current_weapon = weapons.get_child(0)
 
 
 func _process(_delta: float) -> void:
@@ -72,11 +73,14 @@ func get_input() -> void:
 		_switch_weapons(FOURTH)		
 	current_weapon._get_input()
 
+func can_switch(weapon_position: int) -> bool:
+	return weapon_position + 1 <= Global.level_equipped_weapons.values().size()
 
 func _switch_weapons(weapon_position: int) -> void:
-	current_weapon.hide()
-	current_weapon = weapons.get_child(weapon_position)
-	current_weapon.show()
+	if (can_switch(weapon_position)):
+		current_weapon.hide()
+		current_weapon = weapons.get_child(weapon_position)
+		current_weapon.show()
 
 
 func is_hit_by_enemy() -> void:
