@@ -38,13 +38,13 @@ var shop_items = {
 
 var level_equipped_weapons_scale_cfg = {
 	"Fist": {
-		"scale": Vector2(1,1),
+		"scale": Vector2(0.2, 0.2),
 	},
 	"Crossbow" : {
 		"scale": Vector2(0.05, 0.005)
 	},
 	"Gun" : {
-		"scale": Vector2(1,1)
+		"scale": Vector2(0.5, 0.5)
 	}
 }
 
@@ -81,7 +81,7 @@ var shop_equipped_weapons = {
 var level_equipped_weapons = {
 	1: {
 		"name": "Fist",
-		"texture": "res://art/weapons/potion.png",
+		"texture": "res://art/weapons/glove_box.png",
 		"scale" : level_equipped_weapons_scale_cfg["Fist"].scale
 	},
 	2: {

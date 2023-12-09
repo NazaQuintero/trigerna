@@ -10,9 +10,9 @@ class_name Level
 var player = preload("res://characters/player/player.tscn")
 	
 func _ready() -> void:
+	$Inventory_UI.set_weapons(Array(Global.level_equipped_weapons.values()))
 	await intro.tree_exited 
 	start()
-	$Inventory_UI.set_weapons(Array(Global.level_equipped_weapons.values()))
 	
 	
 func get_random_position() -> Vector2:
