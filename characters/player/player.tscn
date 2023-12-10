@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c5pdqw1gfk41k"]
+[gd_scene load_steps=39 format=3 uid="uid://c5pdqw1gfk41k"]
 
 [ext_resource type="PackedScene" uid="uid://bg8rmo2l8j1x8" path="res://characters/character.tscn" id="1_4cv1u"]
 [ext_resource type="Script" path="res://characters/player/player.gd" id="1_xmla5"]
@@ -23,6 +23,10 @@
 [ext_resource type="AudioStream" uid="uid://cjxuf87kkots5" path="res://audio/player_hurt.mp3" id="22_jgbvx"]
 [ext_resource type="AudioStream" uid="uid://umlthsnl218g" path="res://audio/footsteps.mp3" id="23_e0yhi"]
 [ext_resource type="AudioStream" uid="uid://ctnv4aauy58uw" path="res://audio/player-death.mp3" id="23_iedic"]
+[ext_resource type="PackedScene" uid="uid://58wicuucy5h" path="res://weapons/gun.tscn" id="23_xcoe1"]
+[ext_resource type="Script" path="res://levels/health_bar.gd" id="28_1r1uc"]
+[ext_resource type="Texture2D" uid="uid://bko81d2tm8cot" path="res://art/heroes/healthbarUnder.png" id="29_jlrm0"]
+[ext_resource type="Texture2D" uid="uid://btfxxfpd42qxs" path="res://art/heroes/healthbarProgress.png" id="30_1jao3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_drogp"]
 animations = [{
@@ -382,5 +386,14 @@ stream = ExtResource("23_e0yhi")
 volume_db = -8.276
 pitch_scale = 0.84
 max_distance = 1996.0
+
+[node name="HealthBar" type="CanvasLayer" parent="." index="9"]
+script = ExtResource("28_1r1uc")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HealthBar" index="0"]
+offset_right = 64.0
+offset_bottom = 40.0
+texture_under = ExtResource("29_jlrm0")
+texture_progress = ExtResource("30_1jao3")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="FiniteStateMachine" method="_on_animation_player_animation_finished"]
