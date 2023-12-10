@@ -119,3 +119,13 @@ func instance_node(node, location, parent):
 	node_instance._initialize_values()
 	return node_instance
 
+
+func add_new_equipped_weapon(weapon_name: String):
+	var texture = shop_weapons[weapon_name].texture
+	var shop_scale = shop_weapons[weapon_name].scale
+	var level_scale = level_weapons[weapon_name].scale
+	shop_equipped_weapons.merge({ current_weapon: { "name": name, "texture": texture, "scale": shop_scale }})
+	level_equipped_weapons.merge({ current_weapon: { "name": name, "texture": texture, "scale": level_scale }})
+
+func get_selected_shop_item():
+	return shop_items[shop_item_selected]

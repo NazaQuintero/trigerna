@@ -18,13 +18,16 @@ var weapons_scenes = {
 
 var damage_modifier: int = 2
 
+func add_weapons_instances():
+	for weapon in Global.level_equipped_weapons.values():
+		var new_weapon = weapons_scenes[weapon.name].instantiate()
+		weapons.add_child(new_weapon)
+
 
 func _ready() -> void:
 	position = screen_size / 2
-	for weapon in Global.level_equipped_weapons.values():
-		print(weapon)
-		var new_weapon = weapons_scenes[weapon.name].instantiate()
-		weapons.add_child(new_weapon)
+	
+	add_weapons_instances()
 	current_weapon = weapons.get_child(0)
 
 
@@ -70,7 +73,7 @@ func get_input() -> void:
 	elif Input.is_action_pressed("ui_third_weapon"):
 		_switch_weapons(THIRD)
 	elif Input.is_action_pressed("ui_fourth_weapon"):
-		_switch_weapons(FOURTH)		
+		_switch_weapons(FOURTH)
 	current_weapon._get_input()
 
 func can_switch(weapon_position: int) -> bool:
