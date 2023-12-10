@@ -1,23 +1,34 @@
 extends Character
 
-enum {FIRST, SECOND, THIRD}
+enum {FIRST, SECOND, THIRD, FOURTH}
 
 const MAX_HITPOINTS = 100
 
 @onready var screen_size: Vector2 = get_viewport_rect().size
-@onready var weapons: Node2D = $Weapons
+@onready var weapons: Node2D = $EquippedWeapons
 @onready var current_weapon: Node2D = weapons.get_child(0)
 
 @onready var collectedCoins = get_parent().get_node("CoinsCounterUi").get_child(0)
 
-@export var weapons_inventory: Inventory
-
+var weapons_scenes = {
+	"fist" : load("res://weapons/fist.tscn"),
+	"crossbow": load("res://weapons/crossbow.tscn"),
+	"gun": load("res://weapons/gun.tscn")
+}
 
 var damage_modifier: int = 2
+
+func add_weapons_instances():
+	for weapon in Global.level_equipped_weapons.values():
+		var new_weapon = weapons_scenes[weapon.name].instantiate()
+		weapons.add_child(new_weapon)
 
 
 func _ready() -> void:
 	position = screen_size / 2
+	
+	add_weapons_instances()
+	current_weapon = weapons.get_child(0)
 
 
 func _process(_delta: float) -> void:
@@ -29,7 +40,7 @@ func _process(_delta: float) -> void:
 		animated_sprite.flip_h = true
 	
 	current_weapon.move(mouse_direction)
-	collectedCoins.text = "Coins: " + str(CoinsCounter.coins)
+	collectedCoins.text = "Coins: " + str(Global.collected_coins)
 
 
 func increase_hitpoints(value: int):
@@ -40,7 +51,7 @@ func increase_hitpoints(value: int):
 		self.hitpoints = new_hitpoints
 
 func increment_coins(value: int):
-	CoinsCounter.coins += value
+	Global.collected_coins += value
 
 
 func get_input() -> void:
@@ -61,13 +72,18 @@ func get_input() -> void:
 		_switch_weapons(SECOND)
 	elif Input.is_action_pressed("ui_third_weapon"):
 		_switch_weapons(THIRD)
+	elif Input.is_action_pressed("ui_fourth_weapon"):
+		_switch_weapons(FOURTH)
 	current_weapon._get_input()
 
+func can_switch(weapon_position: int) -> bool:
+	return weapon_position + 1 <= Global.level_equipped_weapons.values().size()
 
 func _switch_weapons(weapon_position: int) -> void:
-	current_weapon.hide()
-	current_weapon = weapons.get_child(weapon_position)
-	current_weapon.show()
+	if (can_switch(weapon_position)):
+		current_weapon.hide()
+		current_weapon = weapons.get_child(weapon_position)
+		current_weapon.show()
 
 
 func is_hit_by_enemy() -> void:
