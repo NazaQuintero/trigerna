@@ -22,6 +22,9 @@ layer_1/tile_data = PackedInt32Array(1048576, 65536, 7, 983040, 196608, 5, 85196
 [node name="CanvasModulate" type="CanvasModulate" parent="." index="1"]
 color = Color(0.662745, 0.796078, 0.894118, 1)
 
+[node name="TimerLevel" parent="." index="2"]
+wait_time = 60.0
+
 [node name="SpawnTimer" parent="." index="3"]
 wait_time = 2.0
 

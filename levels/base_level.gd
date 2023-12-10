@@ -48,5 +48,6 @@ func _on_spawn_timer_timeout():
 
 
 func _on_timer_level_timeout():
-	Switcher._level_handler(level_name)
+#	Switcher._level_handler(level_name)
+	Switcher.change_next_level()
 	

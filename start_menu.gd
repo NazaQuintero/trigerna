@@ -9,7 +9,8 @@ func _ready():
 
 func _on_play_button_pressed() -> void:	
 	press_sound.play()
-	Switcher._level_handler("level_menu")
+#	Switcher._level_handler("level_menu")
+	Switcher.change_next_level()
 
 
 func _on_quit_button_pressed() -> void:
