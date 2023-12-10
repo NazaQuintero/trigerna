@@ -15,7 +15,7 @@ var shop_items = {
 	0: {
 		"name": "potion",
 		"desc": "An item useful to recover 50 points of life",
-		"cost": 200,
+		"cost": 50,
 		"texture": "res://art/props_itens/potion_red.png",
 		"scaleX": 4,
 		"scaleY": 4
@@ -23,7 +23,7 @@ var shop_items = {
 	1: {
 		"name": "crossbow",
 		"desc": "A ranged weapon that fires arrows",
-		"cost": 500,
+		"cost": 200,
 		"texture": "res://art/weapons/crossbow.png",
 		"scaleX": 0.05,
 		"scaleY": 0.05

@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://tu1hl0lde1st" path="res://audio/ready-fight.mp3" id="5_lxvgv"]
 [ext_resource type="PackedScene" uid="uid://ceq7rl2exrexf" path="res://levels/level_display.tscn" id="7_xt33f"]
 [ext_resource type="Script" path="res://levels/countdown.gd" id="8_op5mc"]
-[ext_resource type="FontVariation" uid="uid://cks81d4cj4m8e" path="res://fonts/levelsfont.tres" id="8_vuysv"]
+[ext_resource type="FontVariation" path="res://fonts/levelsfont.tres" id="8_vuysv"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_2vsvb"]
 polygon = PackedVector2Array(1.41421, -8, -3.35876, -8, -6.36396, -3.8007, -6.18718, 3.8007, -4.94975, 5.03814, -0.53033, 6.0988, 3.0052, 5.56847, 4.94975, 4.15425, 6.36396, -3.09359)

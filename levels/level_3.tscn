@@ -28,7 +28,7 @@ wait_time = 60.0
 [node name="SpawnTimer" parent="." index="3"]
 wait_time = 2.0
 
-[node name="Torch" parent="." index="11" instance=ExtResource("3_cktuv")]
+[node name="Torch" parent="." index="10" instance=ExtResource("3_cktuv")]
 position = Vector2(76.5, 3.5)
 scale = Vector2(0.992187, 0.976563)
 energy = 1.5
@@ -40,7 +40,7 @@ height = 6.0
 position = Vector2(-1, -1)
 frame_progress = 0.82521
 
-[node name="Torch2" parent="." index="12" instance=ExtResource("3_cktuv")]
+[node name="Torch2" parent="." index="11" instance=ExtResource("3_cktuv")]
 position = Vector2(380, 4)
 scale = Vector2(0.992187, 0.976563)
 energy = 1.5
@@ -52,7 +52,7 @@ height = 6.0
 position = Vector2(-1, -1)
 frame_progress = 0.82521
 
-[node name="Torch3" parent="." index="13" instance=ExtResource("3_cktuv")]
+[node name="Torch3" parent="." index="12" instance=ExtResource("3_cktuv")]
 position = Vector2(84, 263)
 scale = Vector2(0.992187, 0.976563)
 energy = 1.5
@@ -64,7 +64,7 @@ height = 6.0
 position = Vector2(-1, -1)
 frame_progress = 0.82521
 
-[node name="Torch4" parent="." index="14" instance=ExtResource("3_cktuv")]
+[node name="Torch4" parent="." index="13" instance=ExtResource("3_cktuv")]
 position = Vector2(379, 263)
 scale = Vector2(0.992187, 0.976563)
 energy = 1.5
