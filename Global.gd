@@ -16,14 +16,6 @@ var current_weapon = 0
 
 var shop_items = {
 	0: {
-		"name": "potion",
-		"desc": "An item useful to recover 50 points of life",
-		"cost": 50,
-		"texture": "res://art/props_itens/potion_red.png",
-		"scaleX": 4,
-		"scaleY": 4
-	},
-	1: {
 		"name": "crossbow",
 		"desc": "A ranged weapon that fires arrows",
 		"cost": 200,
@@ -31,7 +23,7 @@ var shop_items = {
 		"scaleX": 0.05,
 		"scaleY": 0.05
 	},
-	2: {
+	1: {
 		"name": "gun",
 		"desc": "A ranged weapon that fires bullets",
 		"cost": 1000,
