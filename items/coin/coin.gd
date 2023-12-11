@@ -4,7 +4,7 @@ class_name Coin
 
 
 func _ready():
-	value = 5
+	value = 10
 
 func _on_body_entered(body):
 	if body.name == "Player":
