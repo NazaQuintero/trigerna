@@ -5,6 +5,9 @@ const MASK_LAYER_PLAYER: int = 2
 const MASK_LAYER_ENEMY: int = 3
 const MASK_LAYER_ITEM: int = 4
 
+var COIN_SCENE = preload("res://items/coin/coin.tscn")
+var POTION_SCENCE = preload("res://items/potion/potion.tscn")
+
 var collected_coins = 0
 
 var shop_item_selected = 0
@@ -132,3 +135,11 @@ func add_new_equipped_weapon(weapon_name: String):
 
 func get_selected_shop_item():
 	return shop_items[shop_item_selected]
+
+func get_drop(enemy: Enemy):
+	var index = randi_range(0, 9)
+	if index < 7:
+		enemy.drop_item(COIN_SCENE)
+	else:
+		enemy.drop_item(POTION_SCENCE)
+	

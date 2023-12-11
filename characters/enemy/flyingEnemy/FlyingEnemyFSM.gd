@@ -38,6 +38,6 @@ func _enter_state(_previous_state: int, new_state: int) -> void:
 			animation_player.play("hurt")
 		states.dead:
 			animation_player.play("dead")
-			parent.drop_coin()
+			parent.get_droppable_item()
 		states.stun:
 			animation_player.play("stun")

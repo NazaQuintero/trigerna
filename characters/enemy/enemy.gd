@@ -2,9 +2,6 @@ extends Character
 class_name Enemy
 
 
-const COIN_SCENE = preload("res://items/coin/coin.tscn")
-
-
 @onready var player: CharacterBody2D = get_parent().get_node("Player")
 @onready var path_timer: Timer = $PathTimer
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
@@ -43,8 +40,12 @@ func _get_path_to_player() -> void:
 	navigation_agent.target_position = player.position
 
 
-func drop_coin():
-	var instance = COIN_SCENE.instantiate()
+func get_droppable_item():
+	Global.get_drop(self)
+
+
+func drop_item(scene):
+	var instance = scene.instantiate()
 	instance.position = self.position
 	get_parent().add_child(instance)
 
