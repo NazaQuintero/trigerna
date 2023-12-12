@@ -27,7 +27,8 @@ func _spawn_enemies():
 	while is_in_visible_square_box(enemy_position):
 		enemy_position = get_random_position()
 		
-	Global.instance_node(enemy_list.pick_random(), enemy_position, self)
+	if !enemy_list.is_empty():
+		Global.instance_node(enemy_list.pick_random(), enemy_position, self)
 	
 func _player_died() -> void:
 	connect("player_died", Callable(self, "_lose"))
