@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://huhb7m017p1y"]
+[gd_scene load_steps=78 format=3 uid="uid://huhb7m017p1y"]
 
 [ext_resource type="Script" path="res://characters/enemy/boss/boss.gd" id="1_25x5x"]
 [ext_resource type="Texture2D" uid="uid://b4h5bq6tpa746" path="res://art/enemies/boss/Character_sheet.png" id="2_tslm2"]
@@ -442,6 +442,22 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 14]
 }
 
+[sub_resource type="Animation" id="Animation_lt2h6"]
+resource_name = "missile_attack"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ip7ij"]
 _data = {
 "RESET": SubResource("Animation_at50u"),
@@ -449,7 +465,8 @@ _data = {
 "defense": SubResource("Animation_4g04q"),
 "glowing": SubResource("Animation_angkg"),
 "idle": SubResource("Animation_urw7a"),
-"laser": SubResource("Animation_d7m24")
+"laser": SubResource("Animation_d7m24"),
+"missile_attack": SubResource("Animation_lt2h6")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_62b00"]
@@ -576,12 +593,12 @@ radius = 90.05
 collision_layer = 20
 collision_mask = 0
 script = ExtResource("1_25x5x")
-acceleration = 30
-max_speed = 80
+acceleration = 20
+max_speed = 60
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3ubf5")
-animation = &"glowing"
+animation = &"missile_attack"
 autoplay = "glowing"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

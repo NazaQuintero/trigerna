@@ -10,8 +10,8 @@ var center_margin = 5
 var go_center = true
 var enable_attack = false
 
-func _ready():
-	pass
+func _ready() -> void:
+	position = Vector2(randi_range(-160, 670), randi_range(-90, 390))
 
 func _process(delta):
 	if go_center:
@@ -21,22 +21,25 @@ func _process(delta):
 		else:
 			mov_direction = Vector2.ZERO
 	else:
-		mov_direction = player.position - position
-		if mov_direction.x < 0:
-			animation.flip_h = true
+		var distance_to_player = player.position.distance_to(global_position)
+		if distance_to_player > center_margin:
+			mov_direction = (player.position - position).normalized()
 		else:
-			animation.flip_h = false
-			
+			mov_direction = Vector2.ZERO
+	if mov_direction.x < 0:
+		animation.flip_h = true
+	else:
+		animation.flip_h = false
+
 func _on_detection_area_body_entered(body):
-	if is_instance_valid(player) and enable_attack:
-		go_center = false
+	if player and enable_attack:
 		enable_attack = false
+		go_center = false
 		var missile_init = missile.instantiate()
 		get_tree().current_scene.add_child(missile_init)
 		boss_sm._set_state(boss_sm.states.attack)
 		missile_init.launch(global_position, (player.position - global_position).normalized(), projectile_speed)
 
-		
 func _on_attack_timer_timeout():
 	enable_attack = true
 

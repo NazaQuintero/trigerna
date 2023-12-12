@@ -11,7 +11,8 @@ const COIN_SCENE = preload("res://items/coin/coin.tscn")
 
 
 func _ready() -> void:
-	path_timer.start()
+	if path_timer != null:
+		path_timer.start()
 
 
 func chase() -> void:
