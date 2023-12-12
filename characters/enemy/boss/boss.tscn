@@ -1,10 +1,11 @@
-[gd_scene load_steps=75 format=3 uid="uid://huhb7m017p1y"]
+[gd_scene load_steps=77 format=3 uid="uid://huhb7m017p1y"]
 
 [ext_resource type="Script" path="res://characters/enemy/boss/boss.gd" id="1_25x5x"]
 [ext_resource type="Texture2D" uid="uid://b4h5bq6tpa746" path="res://art/enemies/boss/Character_sheet.png" id="2_tslm2"]
 [ext_resource type="Script" path="res://levels/health_bar.gd" id="4_j7va7"]
 [ext_resource type="Texture2D" uid="uid://bko81d2tm8cot" path="res://art/heroes/healthbarUnder.png" id="5_4nkdo"]
 [ext_resource type="Texture2D" uid="uid://btfxxfpd42qxs" path="res://art/heroes/healthbarProgress.png" id="6_xq3tc"]
+[ext_resource type="Script" path="res://characters/enemy/boss/bossFSM.gd" id="6_y0odl"]
 [ext_resource type="Texture2D" uid="uid://br3wnx7a1gcrr" path="res://art/enemies/boss/Laser_sheet.png" id="7_wuqi3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vegl2"]
@@ -568,14 +569,20 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_j555o"]
+radius = 90.05
+
 [node name="Boss" type="CharacterBody2D"]
 collision_layer = 20
-collision_mask = 4
+collision_mask = 0
 script = ExtResource("1_25x5x")
+acceleration = 30
+max_speed = 80
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3ubf5")
-animation = &"defense"
+animation = &"glowing"
+autoplay = "glowing"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../AnimatedSprite2D")
@@ -604,6 +611,7 @@ texture_under = ExtResource("5_4nkdo")
 texture_progress = ExtResource("6_xq3tc")
 
 [node name="FiniteMachineState" type="Node" parent="."]
+script = ExtResource("6_y0odl")
 
 [node name="Laser" type="Node2D" parent="."]
 
@@ -612,6 +620,16 @@ position = Vector2(91.5, 0)
 scale = Vector2(0.943333, 1)
 sprite_frames = SubResource("SpriteFrames_gmucd")
 
-[node name="AttackTimer" type="Timer" parent="."]
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 20
+collision_mask = 2
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_j555o")
+
+[node name="AttackTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

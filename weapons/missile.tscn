@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://c786duon7g6hs" path="res://art/enemies/boss/arm_projectile_glowing.png" id="1_gk17l"]
 [ext_resource type="Script" path="res://weapons/missile.gd" id="1_p6xii"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xg0ho"]
+size = Vector2(32, 9)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_1wx4e"]
 atlas = ExtResource("1_gk17l")
 region = Rect2(0, 0, 100, 100)
@@ -53,18 +56,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xg0ho"]
-size = Vector2(32, 9)
-
 [node name="Missile" type="Area2D"]
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_p6xii")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_ynm4n")
-autoplay = "default"
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(30, -13)
 shape = SubResource("RectangleShape2D_xg0ho")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ynm4n")
+autoplay = "default"
