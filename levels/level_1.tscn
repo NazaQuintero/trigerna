@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0tqji32jwn4q"]
+[gd_scene load_steps=2 format=3 uid="uid://c0tqji32jwn4q"]
 
 [ext_resource type="PackedScene" uid="uid://dbypqa253refi" path="res://levels/base_level.tscn" id="1_d5m7l"]
-[ext_resource type="PackedScene" uid="uid://huhb7m017p1y" path="res://characters/enemy/boss/boss.tscn" id="2_oas83"]
 
 [node name="Level1" instance=ExtResource("1_d5m7l")]
 level_name = "Level 1"
