@@ -1,0 +1,86 @@
+[gd_scene load_steps=6 format=3 uid="uid://j3xkeq7csnov"]
+
+[ext_resource type="Script" path="res://shop_control.gd" id="1_15fsn"]
+[ext_resource type="PackedScene" uid="uid://dyx17ao4nlaw2" path="res://levels/shop/items/shop_item.tscn" id="1_ed2xd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mx4k2"]
+font_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_1mw7s"]
+font_size = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_aj6p8"]
+font_size = 11
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_15fsn")
+
+[node name="ShopItem" parent="." instance=ExtResource("1_ed2xd")]
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 9.0
+offset_right = 162.0
+offset_bottom = 31.0
+text = "Name"
+label_settings = SubResource("LabelSettings_mx4k2")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 90.0
+offset_right = 193.0
+offset_bottom = 146.0
+text = "Desc here lorem ipsum papita a todo"
+label_settings = SubResource("LabelSettings_1mw7s")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Price" type="Label" parent="."]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 137.0
+offset_right = 150.0
+offset_bottom = 165.0
+text = " Price: "
+label_settings = SubResource("LabelSettings_aj6p8")
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Prev" type="Button" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 40.0
+offset_right = 28.0
+offset_bottom = 71.0
+text = "<"
+
+[node name="Next" type="Button" parent="."]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 39.0
+offset_right = 183.0
+offset_bottom = 70.0
+text = ">"
+
+[node name="Purchase" type="Button" parent="."]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 176.0
+offset_right = 130.0
+offset_bottom = 198.0
+theme_override_font_sizes/font_size = 10
+text = "Purchase"
+
+[connection signal="pressed" from="Prev" to="." method="_on_prev_pressed"]
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Purchase" to="." method="_on_purchase_pressed"]

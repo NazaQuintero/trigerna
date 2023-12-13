@@ -309,10 +309,11 @@ hitpoints = 4
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_yrqch")
 animation = &"move"
-frame = 2
+frame = 1
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CircleShape2D_yrg6h")
+disabled = true
 
 [node name="FiniteStateMachine" parent="." index="2"]
 script = ExtResource("19_ayd0v")

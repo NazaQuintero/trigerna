@@ -10,8 +10,10 @@ class_name Level
 var player = preload("res://characters/player/player.tscn")
 	
 func _ready() -> void:
+	$Inventory_UI.set_weapons(Array(Global.level_equipped_weapons.values()))
 	await intro.tree_exited 
 	start()
+	
 	
 func get_random_position() -> Vector2:
 	return Vector2(randi_range(-160, 670), randi_range(-90, 390))
@@ -47,5 +49,6 @@ func _on_spawn_timer_timeout():
 
 
 func _on_timer_level_timeout():
-	Switcher._level_handler(level_name)
+#	Switcher._level_handler(level_name)
+	Switcher.change_next_level()
 	

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyx17ao4nlaw2"]
+
+[ext_resource type="Script" path="res://levels/shop/items/shop_item.gd" id="1_546rg"]
+
+[node name="shop_item" type="Node"]
+script = ExtResource("1_546rg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
