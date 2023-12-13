@@ -1,12 +1,10 @@
 extends FiniteStateMachine
 
-func _init() -> void:
-	super()
+func _init():
 	_add_state("hurt")
 	_add_state("dead")
 	_add_state("idle")
 	_add_state("attack")
-
 
 func _ready() -> void:
 	_set_state(states.idle)
@@ -14,7 +12,7 @@ func _ready() -> void:
 
 func _state_logic(_delta: float) -> void:
 	if states.idle:
-		parent.move()
+		parent.move()		
 
 func _get_transition() -> int:
 	match state:
@@ -28,6 +26,7 @@ func _get_transition() -> int:
 
 
 func _enter_state(_previous_state: int, new_state: int) -> void:
+	print("Entering state:", new_state)
 	match new_state:
 		states.idle:
 			animation_player.play("glowing")
