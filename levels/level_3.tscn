@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://drb5oc4ckda53"]
+[gd_scene load_steps=4 format=3 uid="uid://drb5oc4ckda53"]
 
 [ext_resource type="PackedScene" uid="uid://dbypqa253refi" path="res://levels/base_level.tscn" id="1_wmw66"]
+[ext_resource type="PackedScene" uid="uid://huhb7m017p1y" path="res://characters/enemy/boss/boss.tscn" id="3_3s4up"]
 [ext_resource type="PackedScene" uid="uid://crahhvhnar0ov" path="res://items/torch/torch.tscn" id="3_cktuv"]
 
 [node name="Level3" instance=ExtResource("1_wmw66")]
-enemy_list = [null]
 level_name = "Level 3"
 
 [node name="TileMap" parent="." index="0"]
@@ -74,6 +74,8 @@ height = 6.0
 [node name="AnimatedSprite2D" parent="Torch4" index="0"]
 position = Vector2(-1, -1)
 frame_progress = 0.82521
+
+[node name="Boss" parent="." index="14" instance=ExtResource("3_3s4up")]
 
 [editable path="Torch"]
 [editable path="Torch2"]
