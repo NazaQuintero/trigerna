@@ -337,8 +337,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_62b00"]
+radius = 13.0
+height = 44.0
+
 [sub_resource type="Animation" id="Animation_at50u"]
 length = 0.001
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -469,10 +474,6 @@ _data = {
 "missile_attack": SubResource("Animation_lt2h6")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_62b00"]
-radius = 13.0
-height = 44.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_2s74y"]
 atlas = ExtResource("7_wuqi3")
 region = Rect2(0, 0, 300, 100)
@@ -598,14 +599,7 @@ max_speed = 60
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3ubf5")
-animation = &"missile_attack"
-autoplay = "glowing"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../AnimatedSprite2D")
-libraries = {
-"": SubResource("AnimationLibrary_ip7ij")
-}
+animation = &"glowing"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_62b00")
@@ -627,8 +621,14 @@ size_flags_vertical = 8
 texture_under = ExtResource("5_4nkdo")
 texture_progress = ExtResource("6_xq3tc")
 
-[node name="FiniteMachineState" type="Node" parent="."]
+[node name="BossFMS" type="Node" parent="."]
 script = ExtResource("6_y0odl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimatedSprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_ip7ij")
+}
 
 [node name="Laser" type="Node2D" parent="."]
 

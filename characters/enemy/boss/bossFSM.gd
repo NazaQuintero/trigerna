@@ -1,6 +1,7 @@
 extends FiniteStateMachine
 
 func _init() -> void:
+	super()
 	_add_state("hurt")
 	_add_state("dead")
 	_add_state("idle")

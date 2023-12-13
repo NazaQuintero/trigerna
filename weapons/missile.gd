@@ -8,4 +8,9 @@ func _init() -> void:
 func _set_collisions() -> void:
 	set_collision_mask_value(Global.MASK_LAYER_WORLD, true)
 	set_collision_mask_value(Global.MASK_LAYER_PLAYER, true)
+	
+
+
+
+	
 
