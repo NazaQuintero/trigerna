@@ -26,7 +26,6 @@ func _get_transition() -> int:
 
 
 func _enter_state(_previous_state: int, new_state: int) -> void:
-	print("Entering state:", new_state)
 	match new_state:
 		states.idle:
 			animation_player.play("glowing")
@@ -36,5 +35,5 @@ func _enter_state(_previous_state: int, new_state: int) -> void:
 			animation_player.play("missile_attack")
 		states.dead:
 			animation_player.play("dead")
-			parent.drop_coin()
+			Switcher._player_wins()
 

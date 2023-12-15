@@ -34,6 +34,9 @@ func _level_handler(level_name: String) -> void:
 func _player_lose() -> void:
 	game.change_level("res://levels/game_over_menu.tscn")
 
+func _player_wins() -> void:
+	game.change_level("res://levels/win.tscn")
+
 
 func change_level() -> void:
 	game.change_level("res://levels/"+ next_level + ".tscn")
