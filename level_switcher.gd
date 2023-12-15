@@ -25,7 +25,9 @@ func _level_handler(level_name: String) -> void:
 		"shop":
 			next_level = "level_2"
 		"Level 2":
-			next_level = "level_3" # falta hacer esta escena player_won
+			next_level = "level_3"
+		"Level 3":
+			self._player_lose()
 		_:
 			return
 	transition.play("fade_in")
@@ -33,6 +35,9 @@ func _level_handler(level_name: String) -> void:
 
 func _player_lose() -> void:
 	game.change_level("res://levels/game_over_menu.tscn")
+
+func _player_wins() -> void:
+	game.change_level("res://levels/win.tscn")
 
 
 func change_level() -> void:
