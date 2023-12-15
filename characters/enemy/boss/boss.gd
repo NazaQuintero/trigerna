@@ -3,13 +3,13 @@ class_name Boss
 
 var missile = preload("res://weapons/missile.tscn")
 @onready var animation = $AnimatedSprite2D
-@onready var boss_states = $BossFMS
 @onready var screen_size: Vector2 = get_viewport_rect().size
-
+@onready var boss_state = $BossFMS
 var center_margin = 5
 var go_center = true
 
 func _ready():
+	state_machine = boss_state
 	position = Vector2(randi_range(-160, 670), randi_range(-90, 390))
 
 func _process(delta):
@@ -39,7 +39,7 @@ func _on_detection_area_body_entered(body):
 	
 func _on_attack_timer_timeout():
 	if player:
-		boss_states._set_state(boss_states.states.attack)
+		boss_state._set_state(boss_state.states.attack)
 		shoot()
  
 func shoot():
