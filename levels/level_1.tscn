@@ -1,11 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0tqji32jwn4q"]
+[gd_scene load_steps=2 format=3 uid="uid://c0tqji32jwn4q"]
 
 [ext_resource type="PackedScene" uid="uid://dbypqa253refi" path="res://levels/base_level.tscn" id="1_d5m7l"]
-[ext_resource type="PackedScene" uid="uid://ght7fiyhumoj" path="res://characters/enemy/flyingEnemy/flying_enemy.tscn" id="2_5m7wh"]
-[ext_resource type="PackedScene" uid="uid://8np5wcp5b68o" path="res://characters/enemy/slime/slime.tscn" id="3_y77ae"]
 
 [node name="Level1" instance=ExtResource("1_d5m7l")]
-enemy_list = [ExtResource("2_5m7wh"), ExtResource("3_y77ae")]
 level_name = "Level 1"
 
 [node name="TileMap" parent="." index="0"]
