@@ -12,7 +12,7 @@ func _ready() -> void:
 
 func _state_logic(_delta: float) -> void:
 	if states.idle:
-		parent.move()		
+		parent.move()
 
 func _get_transition() -> int:
 	match state:
