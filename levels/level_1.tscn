@@ -1,11 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0tqji32jwn4q"]
+[gd_scene load_steps=3 format=3 uid="uid://c0tqji32jwn4q"]
 
 [ext_resource type="PackedScene" uid="uid://dbypqa253refi" path="res://levels/base_level.tscn" id="1_d5m7l"]
-[ext_resource type="PackedScene" uid="uid://ght7fiyhumoj" path="res://characters/enemy/flyingEnemy/flying_enemy.tscn" id="2_5m7wh"]
-[ext_resource type="PackedScene" uid="uid://8np5wcp5b68o" path="res://characters/enemy/slime/slime.tscn" id="3_y77ae"]
+[ext_resource type="PackedScene" uid="uid://8np5wcp5b68o" path="res://characters/enemy/slime/slime.tscn" id="2_2iv6n"]
 
 [node name="Level1" instance=ExtResource("1_d5m7l")]
-enemy_list = [ExtResource("2_5m7wh"), ExtResource("3_y77ae")]
+enemy_list = [ExtResource("2_2iv6n")]
 level_name = "Level 1"
 
 [node name="TileMap" parent="." index="0"]
@@ -13,5 +12,8 @@ layer_0/tile_data = PackedInt32Array(0, 196608, 1, 1, 196608, 1, 2, 196608, 1, 3
 
 [node name="TimerLevel" parent="." index="1"]
 wait_time = 60.0
+
+[node name="SpawnTimer" parent="." index="2"]
+wait_time = 3.0
 
 [connection signal="timeout" from="TimerLevel" to="." method="_on_timer_level_timeout"]
